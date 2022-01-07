@@ -5,18 +5,20 @@ using UnityEngine;
 public class CharaterControl : MonoBehaviour
 {
     private float Speed;
+    private float JumpPower;
+    private Rigidbody rb;
 
-    private Animator Anime;
+    private int JumpCount;
 
-    private bool JumpCheck;
     private void Awake()
     {
-        Anime = GetComponent<Animator>();
+        rb = GetComponent<Rigidbody>();
     }
     void Start()
     {
         Speed = 5.0f;
-        JumpCheck = false;
+        JumpPower = 5.0f;
+        JumpCount = 1;
     }
 
     void Update()
@@ -38,26 +40,23 @@ public class CharaterControl : MonoBehaviour
             transform.Translate(Vector3.back * Speed * Time.deltaTime);
         }
 
-        if(!JumpCheck)
+        
+        if (Input.GetButtonDown("Jump"))
         {
-            if (Input.GetButtonDown("Jump"))
+            if(JumpCount == 1)
             {
-                transform.Translate(Vector3.up * 30 * Time.deltaTime);
-                JumpCheck = true;
-                Anime.SetBool("Jump", JumpCheck);
-            }
+                JumpCount = 0;
+                rb.AddForce(Vector3.up * JumpPower, ForceMode.VelocityChange);
+            }                      
         }
-        else
-            JumpCheck = false;
+      
 
-        //    Anime.SetBool("Jump", JumpCheck);
     }
 
-    private void LateUpdate()
+    private void OnCollisionEnter(Collision collision)
     {
-     //   JumpCheck = false;
-
-        Anime.SetBool("Jump", JumpCheck);
+        if (collision.transform.tag == "Ground")
+            JumpCount = 1;
     }
 }
 
