@@ -6,24 +6,48 @@ public class PlayerAnimetion : MonoBehaviour
 {
     private Animator Anim;
 
+    private float Move;
     private void Awake()
     {
         Anim = GetComponent<Animator>();
     }
     void Start()
     {
-        
+        Move = 0.0f;
     }
 
     void Update()
     {
-        var Hor = Input.GetAxisRaw("Horizontal");
-        var Ver = Input.GetAxisRaw("Vertical");
+        if (Input.GetKey(KeyCode.A))
+        {
 
+        }
+        else if (Input.GetKey(KeyCode.D))
+        {
 
-        if(Ver > 0.5)
-            Anim.SetFloat("Walk", 0.6f);
-        else
-            Anim.SetFloat("Walk", 0.0f);
+        }
+
+        if (Input.GetKey(KeyCode.W))
+        {
+            if(Move < 0.6f)
+                Move += 0.1f;
+        }
+        else if (Input.GetKey(KeyCode.S))
+        {
+            if (Move >= 0.0f)
+                Move -= 0.1f;
+        }
+
+        // ** มกวม
+        if (Input.GetKey(KeyCode.Space))
+        {
+            
+        }
+
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            
+        }
+        Anim.SetFloat("Walk", Move);
     }
 }

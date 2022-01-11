@@ -12,7 +12,7 @@ public class FollowCamera : MonoBehaviour
     void Start()
     {
         TurnSpeed = 4.0f;
-        Offset = new Vector3(0.0f, 1.0f, 0.0f);
+        Offset = new Vector3(0.0f, 1.8f, 0.0f);
     }
 
     
