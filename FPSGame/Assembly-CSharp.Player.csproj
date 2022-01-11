@@ -56,6 +56,8 @@
     <Compile Include="Assets\Resource\Script\FollowCamera.cs" />
     <Compile Include="Assets\Resource\Script\PlayerContorl.cs" />
     <Compile Include="Assets\Resource\Script\PlayerAnimetion.cs" />
+    <Compile Include="Assets\Resource\Script\PlayerHpControl.cs" />
+    <Compile Include="Assets\Resource\Script\GameManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
