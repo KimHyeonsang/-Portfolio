@@ -53,11 +53,11 @@
     <UnityVersion>2020.3.20f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Assets\Resource\Script\FollowCamera.cs" />
-    <Compile Include="Assets\Resource\Script\PlayerContorl.cs" />
-    <Compile Include="Assets\Resource\Script\PlayerAnimetion.cs" />
-    <Compile Include="Assets\Resource\Script\PlayerHpControl.cs" />
-    <Compile Include="Assets\Resource\Script\GameManager.cs" />
+    <Compile Include="Assets\Resources\Script\FollowCamera.cs" />
+    <Compile Include="Assets\Resources\Script\PlayerContorl.cs" />
+    <Compile Include="Assets\Resources\Script\PlayerAnimetion.cs" />
+    <Compile Include="Assets\Resources\Script\GameManager.cs" />
+    <Compile Include="Assets\Resources\Script\PlayerHpControl.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

@@ -8,7 +8,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <RootNamespace></RootNamespace>
+    <RootNamespace>
+    </RootNamespace>
     <ProjectGuid>{0C89DCFB-3BAD-6C28-6B5B-24F8CAF266D6}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -53,11 +54,11 @@
     <UnityVersion>2020.3.20f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Assets\Resources\Script\GameManager.cs" />
     <Compile Include="Assets\Resource\Script\FollowCamera.cs" />
     <Compile Include="Assets\Resource\Script\PlayerContorl.cs" />
     <Compile Include="Assets\Resource\Script\PlayerAnimetion.cs" />
     <Compile Include="Assets\Resource\Script\PlayerHpControl.cs" />
-    <Compile Include="Assets\Resource\Script\GameManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
@@ -673,6 +674,7 @@
       <Name>UnityEngine.UI</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
