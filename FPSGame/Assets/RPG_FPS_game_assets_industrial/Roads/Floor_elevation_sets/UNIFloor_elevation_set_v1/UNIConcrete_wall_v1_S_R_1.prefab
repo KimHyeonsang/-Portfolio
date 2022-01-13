@@ -47,7 +47,7 @@ GameObject:
   - component: {fileID: 64000010274609366}
   m_Layer: 0
   m_Name: UNIConcrete_wall_v1_S_R_1f1
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -143,7 +143,7 @@ GameObject:
   - component: {fileID: 65000010311681640}
   m_Layer: 0
   m_Name: UNIConcrete_wall_v1_S_R_1f2
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -238,7 +238,7 @@ GameObject:
   - component: {fileID: 64000012358126804}
   m_Layer: 0
   m_Name: UNIConcrete_wall_v1_S_R_1
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

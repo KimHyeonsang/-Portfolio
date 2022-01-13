@@ -7,6 +7,7 @@ public class PlayerAnimetion : MonoBehaviour
     private Animator Anim;
 
     private bool JumpCheck;
+    private bool Runing;
     private void Awake()
     {
         Anim = GetComponent<Animator>();
@@ -14,10 +15,12 @@ public class PlayerAnimetion : MonoBehaviour
     void Start()
     {
         JumpCheck = false;
+        Runing = false;
     }
 
     void Update()
     {
+        // ** ¿Ãµø
         if (Input.GetKey(KeyCode.A))
         {
             Anim.SetFloat("SpeedX", -1f, 0.1f, Time.deltaTime);
@@ -26,13 +29,21 @@ public class PlayerAnimetion : MonoBehaviour
         {
             Anim.SetFloat("SpeedX", 1f, 0.1f, Time.deltaTime);
         }
-        else if (Input.GetKey(KeyCode.W))
+        else if(Input.GetKey(KeyCode.W) && Runing)
         {
             Anim.SetFloat("SpeedY", 1f, 0.1f, Time.deltaTime);
         }
-        else if (Input.GetKey(KeyCode.S))
+        else if (Input.GetKey(KeyCode.S) && Runing)
         {
             Anim.SetFloat("SpeedY", -1f, 0.1f, Time.deltaTime);
+        }
+        else if (Input.GetKey(KeyCode.W))
+        {
+            Anim.SetFloat("SpeedY", 0.5f, 0.1f, Time.deltaTime);
+        }
+        else if (Input.GetKey(KeyCode.S))
+        {
+            Anim.SetFloat("SpeedY", -0.5f, 0.1f, Time.deltaTime);
         }
         else
         {
@@ -48,14 +59,20 @@ public class PlayerAnimetion : MonoBehaviour
 
         if (Input.GetKey(KeyCode.LeftShift))
         {
-            
+            Runing = true;
         }
+        else
+            Runing = false;
+
         Anim.SetBool("Jump", JumpCheck);
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.transform.tag == "Ground")
-            JumpCheck = false;
+       if (collision.transform.tag == "Ground")
+       {
+           JumpCheck = false;
+       }
     }
+  
 }

@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - Ground
+  - assault
+  - shotgun
+  - smg
+  - sniper
   layers:
   - Default
   - TransparentFX

@@ -58,6 +58,9 @@
     <Compile Include="Assets\Resources\Script\PlayerAnimetion.cs" />
     <Compile Include="Assets\Resources\Script\GameManager.cs" />
     <Compile Include="Assets\Resources\Script\PlayerHpControl.cs" />
+    <Compile Include="Assets\Resources\Script\PlayerStamina.cs" />
+    <Compile Include="Assets\Low Poly Guns\Scripts\GunView.cs" />
+    <Compile Include="Assets\Low Poly Guns\Scripts\GunsMenu.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

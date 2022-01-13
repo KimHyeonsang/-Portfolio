@@ -8,17 +8,17 @@ ModelImporter:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: Kachujin_diffuse
-    second: {fileID: 2800000, guid: e0243647b01952e438bbac6f67a8c6da, type: 3}
+    second: {fileID: 2800000, guid: 17d496df6b1ad534ab9255ab9ec3cf9a, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: Kachujin_normal
-    second: {fileID: 2800000, guid: fc7ef2d01c78ea74a89dad690901c268, type: 3}
+    second: {fileID: 2800000, guid: 76bcba0cf88b8ca4c9f12063e1627cf1, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: Kachujin_specular
-    second: {fileID: 2800000, guid: 2dd5f0c2728fa054abd140a40866e641, type: 3}
+    second: {fileID: 2800000, guid: 64dcbf4cf24b4c042b69fffde65d81a3, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0

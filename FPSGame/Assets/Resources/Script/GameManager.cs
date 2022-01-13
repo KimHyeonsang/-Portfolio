@@ -24,10 +24,7 @@ public class GameManager : MonoBehaviour
         }
        
     }
-    private void Start()
-    {
-    //    Spawn();
-    }
+    
     public GameObject Spawn()
     {
         PlayerSwan = Resources.Load("Prefabs/Player2") as GameObject;

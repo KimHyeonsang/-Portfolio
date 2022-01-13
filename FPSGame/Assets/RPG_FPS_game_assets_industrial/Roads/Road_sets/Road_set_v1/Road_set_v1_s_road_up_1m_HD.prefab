@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 64000013196780968}
   m_Layer: 0
   m_Name: Road_set_v1_s_road_up_1m_HD
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -110,7 +110,7 @@ GameObject:
   - component: {fileID: 64000010050420610}
   m_Layer: 0
   m_Name: Road_set_v1_s_road_up_1m_HD_f
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
