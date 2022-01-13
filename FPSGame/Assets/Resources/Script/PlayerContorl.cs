@@ -13,12 +13,21 @@ public class PlayerContorl : MonoBehaviour
 
     private GameObject StaminaPoint;
     private Slider AnchorPoint;
+    private GameObject ButtonImage;
 
+    private GameObject PlayerSwan;
+    private GameObject EmptyObj;
+    private GameObject CurrentWeapon;
     private void Awake()
     {
         rid = GetComponent<Rigidbody>();
         StaminaPoint = GameObject.Find("Canvas/Stamina");
         AnchorPoint = StaminaPoint.GetComponent<Slider>();
+
+        ButtonImage = GameObject.Find("Canvas/GButtonImage");
+
+        PlayerSwan = Resources.Load("Prefabs/Player2") as GameObject;
+        EmptyObj = Instantiate(PlayerSwan);
     }
 
     void Start()
@@ -27,6 +36,7 @@ public class PlayerContorl : MonoBehaviour
         RunSpeed = 4.0f;
 
         bJumping = false;
+        ButtonImage.SetActive(false);
     }
 
     void Update()
@@ -34,14 +44,14 @@ public class PlayerContorl : MonoBehaviour
         PlayerMove();
         
 
-        // Ä«¸Þ¶ó°¡ º¸´Â¹æÇâÀ» Ä³¸¯ÅÍµµ µû¶ó ¹æÇâÀ» º»´Ù
+        // Ä«ï¿½Þ¶ï¿½ ï¿½ï¿½ï¿½Â¹ï¿½ï¿½ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½Íµï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         transform.localRotation = Camera.main.transform.localRotation;
-        // yÃàÀ¸·Î È¸ÀüÇÏ´Â°Í¸¸ Ä³¸¯ÅÍ°¡ È¸ÀüÀ» ÇÑ´Ù.
+        // yï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È¸ï¿½ï¿½ï¿½Ï´Â°Í¸ï¿½ Ä³ï¿½ï¿½ï¿½Í°ï¿½ È¸ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ´ï¿½.
         transform.localRotation = new Quaternion(0, transform.localRotation.y, 0, transform.localRotation.w);
 
     }
     
-    // ** ÇÃ·¹ÀÌ¾î ÀÌµ¿ °ü·Ã
+    // ** ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½
     private void PlayerMove()
     {
         if (Input.GetKey(KeyCode.A))
@@ -62,7 +72,7 @@ public class PlayerContorl : MonoBehaviour
             transform.Translate(0, 0, -MoveSpeed * Time.deltaTime);
         }
 
-        // ** Á¡ÇÁ
+        // ** ï¿½ï¿½ï¿½ï¿½
         if (Input.GetKey(KeyCode.Space))
         {
             if (bJumping == false)
@@ -72,32 +82,32 @@ public class PlayerContorl : MonoBehaviour
             }
         }
 
-        // ** ½ºÅ×¹Ì³ÊÀÇ SliderÀÇ °ªÀÌ 0 ÃÊ°úÀÏ °æ¿ì
+        // ** ï¿½ï¿½ï¿½×¹Ì³ï¿½ï¿½ï¿½ Sliderï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 0 ï¿½Ê°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
         if(AnchorPoint.value > 0)
         {
-            // ** ´Þ¸®±â
+            // ** ï¿½Þ¸ï¿½ï¿½ï¿½
             if (Input.GetKey(KeyCode.LeftShift))
             {
-                // ** ´Þ¸± ¶§ ½ºÅ×¹Ì³Ê UiÃâ·Â
+                // ** ï¿½Þ¸ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½×¹Ì³ï¿½ Uiï¿½ï¿½ï¿½
                 StaminaPoint.SetActive(true);
-                // ** ¼Óµµ º¯°æ
+                // ** ï¿½Óµï¿½ ï¿½ï¿½ï¿½ï¿½
                 MoveSpeed = RunSpeed;
             }
-            // ** ´Þ¸®Áö ¾ÊÀ» °æ¿ì
+            // ** ï¿½Þ¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
             else
             {
-                // ½ºÅ×¹Ì³Ê°ªÀÌ 99 ÃÊ°úÀÏ°æ¿ì
+                // ï¿½ï¿½ï¿½×¹Ì³Ê°ï¿½ï¿½ï¿½ 99 ï¿½Ê°ï¿½ï¿½Ï°ï¿½ï¿½
                 if(AnchorPoint.value > 99)
-                    // ** ½ºÅ×¹Ì³Ê UI ²ô±â
+                    // ** ï¿½ï¿½ï¿½×¹Ì³ï¿½ UI ï¿½ï¿½ï¿½
                     StaminaPoint.SetActive(false);
-                // ** ±âº» ÀÌµ¿¼Óµµ·Î º¯°æ
+                // ** ï¿½âº» ï¿½Ìµï¿½ï¿½Óµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
                 MoveSpeed = 2.0f;
             }
         }
-        // ** ½ºÅ×¹Ì³Ê°¡ 0ÀÌÇÏÀÏ °æ¿ì
+        // ** ï¿½ï¿½ï¿½×¹Ì³Ê°ï¿½ 0ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
         else
         {
-            // ** Å»Áø»óÅÂ¸¦ ³ªÅ¸³»±â À§ÇÑ ÀÌµ¿¼Óµµ °¨¼Ò
+            // ** Å»ï¿½ï¿½ï¿½ï¿½ï¿½Â¸ï¿½ ï¿½ï¿½Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ï¿½Óµï¿½ ï¿½ï¿½ï¿½ï¿½
             MoveSpeed = 1.0f;
         }
     }
@@ -105,9 +115,36 @@ public class PlayerContorl : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.transform.tag == "Ground")
+        {
             bJumping = false;
 
+        }
+        else if(collision.transform.tag == "sniper")
+        {
+            ButtonImage.SetActive(true);
+            //    if (Input.GetKey(KeyCode.G))
+            //    {
+            GameObject.Find("Player2(Clone)").transform.Find("assault").gameObject.SetActive(false);
+        //    CurrentWeapon = GameObject.FindGameObjectWithTag("assault");
+        //    CurrentWeapon.SetActive(false);
+            GameObject.Find("Player2(Clone)").transform.Find("sniper").gameObject.SetActive(true);
+            
+
+            //    CurrentWeapon = GameObject.Find("sniper");
+
+            for(int i=0;i< EmptyObj.transform.childCount;i++)
+            {
+                Debug.Log(EmptyObj.transform.childCount);
+            }
+            //    }
+        }
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
         if (collision.transform.tag == "sniper")
-            Debug.Log("Hit");
+        {
+            ButtonImage.SetActive(false);
+        }
     }
 }

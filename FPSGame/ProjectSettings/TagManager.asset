@@ -9,6 +9,7 @@ TagManager:
   - shotgun
   - smg
   - sniper
+  - WeaponPoint
   layers:
   - Default
   - TransparentFX
