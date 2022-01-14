@@ -132,10 +132,10 @@ public class PlayerContorl : MonoBehaviour
 
             //    CurrentWeapon = GameObject.Find("sniper");
 
-            for(int i=0;i< EmptyObj.transform.childCount;i++)
-            {
-                Debug.Log(EmptyObj.transform.childCount);
-            }
+        //   for(int i=0;i< EmptyObj.transform.childCount;i++)
+        //   {
+        //       Debug.Log(EmptyObj.transform.childCount);
+        //   }
             //    }
         }
     }

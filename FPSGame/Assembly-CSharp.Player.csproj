@@ -53,14 +53,16 @@
     <UnityVersion>2020.3.20f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Assets\Low Poly Guns\Scripts\GunsMenu.cs" />
+    <Compile Include="Assets\Resources\Script\Weapon\CloseWeapon.cs" />
     <Compile Include="Assets\Resources\Script\FollowCamera.cs" />
     <Compile Include="Assets\Resources\Script\PlayerContorl.cs" />
     <Compile Include="Assets\Resources\Script\PlayerAnimetion.cs" />
     <Compile Include="Assets\Resources\Script\GameManager.cs" />
-    <Compile Include="Assets\Resources\Script\PlayerHpControl.cs" />
     <Compile Include="Assets\Resources\Script\PlayerStamina.cs" />
+    <Compile Include="Assets\Resources\Script\PlayerHpControl.cs" />
     <Compile Include="Assets\Low Poly Guns\Scripts\GunView.cs" />
-    <Compile Include="Assets\Low Poly Guns\Scripts\GunsMenu.cs" />
+    <Compile Include="Assets\Resources\Script\Weapon\CloseWeaponController.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
