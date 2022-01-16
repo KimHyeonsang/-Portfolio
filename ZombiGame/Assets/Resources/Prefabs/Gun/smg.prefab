@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 9017924005493907167}
   - component: {fileID: 6540050551596280341}
   - component: {fileID: -2918343986867528606}
+  - component: {fileID: 5170078848226979543}
   m_Layer: 0
   m_Name: smg
   m_TagString: smg
@@ -93,5 +94,17 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.3345178, y: 1.4343929, z: 2.8454785}
+  m_Size: {x: 1, y: 1.4343929, z: 2.8454785}
   m_Center: {x: 0, y: 0.120087415, z: 0.21871847}
+--- !u!114 &5170078848226979543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4738368601081367488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 735cc88fd46f3d84881b89c05e7e3d33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

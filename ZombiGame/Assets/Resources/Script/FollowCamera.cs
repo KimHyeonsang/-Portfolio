@@ -10,9 +10,17 @@ public class FollowCamera : MonoBehaviour
     private Vector3 Offset;
     private float xRotate = 0.0f;
 
+    // ** 플레이어를 메인 카메라에서 안보이게 하기  위함.
+    private LayerMask PlayerMask;
+    private Camera MainCamera;
     private void Awake()
     {
         Target = GameManager.GetInstance.Spawn();
+
+        MainCamera = GetComponent<Camera>();
+
+    //    PlayerMask = LayerMask.NameToLayer("Player");
+    //    MainCamera.cullingMask = (-1) - (1 << PlayerMask);
     }
     void Start()
     {

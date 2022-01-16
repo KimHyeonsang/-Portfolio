@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour
     
     public GameObject Spawn()
     {
-       PlayerSwan = Resources.Load("Prefabs/Player2") as GameObject;
+       PlayerSwan = Resources.Load("Prefabs/Players/Player") as GameObject;
        EmptyObj = Instantiate(PlayerSwan);
        switch (Stage)
        {

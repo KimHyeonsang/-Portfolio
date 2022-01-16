@@ -140,9 +140,9 @@ public class PlayerContorl : MonoBehaviour
         if (collision.transform.tag == "assault" || collision.transform.tag == "smg"
             || collision.transform.tag == "shotgun" || collision.transform.tag == "sniper")
         {
-            if(Input.GetKeyDown(KeyCode.G))
+            if(Input.GetKey(KeyCode.G))
             {
-                switch(collision.transform.tag)
+                switch (collision.transform.tag)
                 {
                     case "assault":
                         AffterWeaponNumber = 0;
@@ -165,6 +165,7 @@ public class PlayerContorl : MonoBehaviour
                 CurrentWeapon.transform.GetChild(AffterWeaponNumber).gameObject.SetActive(true);
                 CurrentWeaponNumber = AffterWeaponNumber;
                 Destroy(collision.gameObject);
+                ButtonImage.SetActive(false);
             }
         }
     }
