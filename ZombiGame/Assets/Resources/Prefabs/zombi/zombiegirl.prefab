@@ -295,6 +295,7 @@ GameObject:
   - component: {fileID: 5865795528074609818}
   - component: {fileID: 4522937051851006569}
   - component: {fileID: 4504588676687417593}
+  - component: {fileID: 6742209782767501118}
   m_Layer: 0
   m_Name: zombiegirl
   m_TagString: Untagged
@@ -353,7 +354,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 80
   m_CollisionDetection: 0
 --- !u!136 &4522937051851006569
 CapsuleCollider:
@@ -381,6 +382,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc68eb1d50d33dc448f841a89035e5a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Target: {fileID: 0}
+--- !u!114 &6742209782767501118
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 939516006362015789}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d90add21bb88f1a428a86cdaefb7d45a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Radius: 0
+  Angle: 0
+  TargetMask:
+    serializedVersion: 2
+    m_Bits: 64
+  ObstacleMask:
+    serializedVersion: 2
+    m_Bits: 128
+  TargetList: []
+  Attack: 0
 --- !u!1 &1067467717442372830
 GameObject:
   m_ObjectHideFlags: 0

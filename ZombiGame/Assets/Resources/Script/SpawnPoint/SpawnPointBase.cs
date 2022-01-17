@@ -7,11 +7,7 @@ public class SpawnPointBase : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.transform.tag == "Player")
-        {
-            //   gameObject.GetComponent<SpawnPointBase>().enabled = false;
-        }
-        else if (collision.transform.tag != "Ground")
+        if (collision.transform.tag != "Ground" && collision.transform.tag != "Player")
         {
             transform.position = new Vector3(
                 Random.Range(WayPointManager.GetInstance().PointA.x, WayPointManager.GetInstance().PointB.x),

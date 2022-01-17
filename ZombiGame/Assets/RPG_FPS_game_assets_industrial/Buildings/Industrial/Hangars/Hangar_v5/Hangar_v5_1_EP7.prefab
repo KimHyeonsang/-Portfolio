@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 33000014061623406}
   - component: {fileID: 23000013872021880}
   - component: {fileID: 65000011778427396}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Hangar_v5_1_EP7
   m_TagString: Untagged
   m_Icon: {fileID: 0}

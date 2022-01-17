@@ -53,17 +53,25 @@
     <UnityVersion>2020.3.20f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Assets\Resources\Script\SpawnPoint\WayPointManager.cs" />
     <Compile Include="Assets\Low Poly Guns\Scripts\GunsMenu.cs" />
     <Compile Include="Assets\Resources\Script\Weapon\CloseWeapon.cs" />
     <Compile Include="Assets\Resources\Script\FollowCamera.cs" />
-    <Compile Include="Assets\Resources\Script\PlayerContorl.cs" />
-    <Compile Include="Assets\Resources\Script\PlayerAnimetion.cs" />
+    <Compile Include="Assets\Resources\Script\Player\PlayerContorl.cs" />
+    <Compile Include="Assets\Resources\Script\WeaPonBulletDrop.cs" />
+    <Compile Include="Assets\Resources\Script\Player\PlayerAnimetion.cs" />
+    <Compile Include="Assets\Resources\Script\SpawnPoint\SpawnPointBase.cs" />
     <Compile Include="Assets\Resources\Script\GameManager.cs" />
-    <Compile Include="Assets\Resources\Script\PlayerStamina.cs" />
-    <Compile Include="Assets\Resources\Script\PlayerHpControl.cs" />
+    <Compile Include="Assets\Resources\Script\Zombi\ZombiControl.cs" />
+    <Compile Include="Assets\Resources\Script\Player\PlayerStamina.cs" />
+    <Compile Include="Assets\Resources\Script\Player\PlayerHpControl.cs" />
+    <Compile Include="Assets\Resources\Script\Complete.cs" />
     <Compile Include="Assets\Low Poly Guns\Scripts\GunView.cs" />
     <Compile Include="Assets\Resources\Script\Weapon\CloseWeaponController.cs" />
-    <Compile Include="Assets\Resources\Script\WeaPonBulletDrop.cs" />
+    <Compile Include="Assets\Resources\Script\Zombi\ZombiAngleview.cs" />
+    <Compile Include="Assets\Resources\Script\Zombi\Zombiview.cs" />
+    <Compile Include="Assets\Resources\Script\Zombi\ZombiObjectManager.cs" />
+    <Compile Include="Assets\Resources\Script\Zombi\ZombiSpawn.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
@@ -281,6 +289,9 @@
     </Reference>
     <Reference Include="Unity.Rider.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.Rider.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>Library\PackageCache\com.unity.nuget.newtonsoft-json@2.0.0\Runtime\AOT\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2020.3.20f1\Editor\Data\NetStandard\ref\2.0.0\netstandard.dll</HintPath>
