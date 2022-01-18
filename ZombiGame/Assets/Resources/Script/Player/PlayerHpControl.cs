@@ -5,10 +5,8 @@ using UnityEngine.UI;
 
 public class PlayerHpControl : MonoBehaviour
 {
-    private float HpSpeed;
     private GameObject HpPoint;
     private Slider AnchorPoint;
-    private float Dmg;
 
     private Text HpText;
     private GameObject HpObj;
@@ -25,27 +23,17 @@ public class PlayerHpControl : MonoBehaviour
     }
     void Start()
     {
-        HpSpeed = 5.0f;
-        Dmg = 0.5f;
         AnchorPoint.value = AnchorPoint.maxValue;
     }
 
     void Update()
     {
-        float MouseWheel = Input.GetAxis("Mouse ScrollWheel");
-
-        if (MouseWheel > 0)
-        {
-            AnchorPoint.value += Dmg;
-            HurrentPlayerHart = AnchorPoint.value;
-        }
-
-        if (MouseWheel < 0)
-        {
-            AnchorPoint.value -= Dmg;
-            HurrentPlayerHart = AnchorPoint.value;
-        }
-
         HpText.text = HurrentPlayerHart.ToString() + " / " + MaxPlayerHart.ToString();
+    }
+
+    public void ZombiDmg(int _Dmg)
+    {
+          AnchorPoint.value -= _Dmg;
+          HurrentPlayerHart = AnchorPoint.value;
     }
 }

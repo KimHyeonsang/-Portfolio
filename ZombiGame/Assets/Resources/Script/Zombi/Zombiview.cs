@@ -39,9 +39,6 @@ public class Zombiview : MonoBehaviour
     [Tooltip("시야각의 라인 갯수")]
     private int LineAngle;
 
-
-    public bool Attack = false;
-
     private void Start()
     {
         Radius = 10.0f;
@@ -52,7 +49,6 @@ public class Zombiview : MonoBehaviour
     private void Update()
     {
         TargetList.Clear();
-        Attack = false;
         Collider[] InTarget = Physics.OverlapSphere(transform.position, Radius, TargetMask);
         for (int i = 0; i < InTarget.Length; ++i)
         {
@@ -74,10 +70,8 @@ public class Zombiview : MonoBehaviour
                 if (!Physics.Raycast(transform.position, TargetDirection, TargetDistance, ObstacleMask))
                 {
                     TargetList.Add(target);
-                    Attack = true;
+                    NomalZombiController.isMoveActivate = true;
                 }
-                else
-                    Attack = false;
             }
 
         }

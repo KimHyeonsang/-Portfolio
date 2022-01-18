@@ -6,6 +6,8 @@ public class Zombi : MonoBehaviour
 {
     // 좀비의 공통된 정보를 저장
 
+    // 좀비 체력
+    public int Hp;
     // 공격력
     public int Dmg;
     // 공격속도
