@@ -10272,7 +10272,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 772994893}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 48, y: 0, z: 0}
+  m_LocalPosition: {x: 37.6, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -10290,7 +10290,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 798c1c99c44cfec46b79394105e39cf8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Radius: {x: 50, y: 20}
+  Radius: {x: 55, y: 20}
   WeaponPrefab1: {fileID: 0}
   WeaponPrefab2: {fileID: 0}
   WeaponPrefab3: {fileID: 0}
@@ -10302,7 +10302,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 772994893}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0e74e5bc575fdcb4dbcd7a8e83163c9f, type: 3}
   m_Name: 
@@ -10311,7 +10311,7 @@ MonoBehaviour:
   NomalZombiPrefab: {fileID: 0}
   SpeedZombiPrefab: {fileID: 0}
   TankerZombiPrefab: {fileID: 0}
-  Radius: {x: 50, y: 20}
+  Radius: {x: 60, y: 20}
 --- !u!1001 &773386616
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14999,25 +14999,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4000012506713666, guid: 58d97d456aead63499ac7d5316541f78, type: 3}
   m_PrefabInstance: {fileID: 1128478232}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1146822696 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 939516006362015789, guid: 770625cbdff8048409dac3bf0d4a9002, type: 3}
-  m_PrefabInstance: {fileID: 2915180050875582918}
-  m_PrefabAsset: {fileID: 0}
---- !u!64 &1146822697
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1146822696}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 0}
 --- !u!1001 &1151147461
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27945,6 +27926,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -2090017610402877768, guid: 770625cbdff8048409dac3bf0d4a9002, type: 3}
+      propertyPath: Range
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: -2090017610402877768, guid: 770625cbdff8048409dac3bf0d4a9002, type: 3}
+      propertyPath: attackDelay
+      value: 1.7
+      objectReference: {fileID: 0}
+    - target: {fileID: -2090017610402877768, guid: 770625cbdff8048409dac3bf0d4a9002, type: 3}
+      propertyPath: attackDelayA
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -2090017610402877768, guid: 770625cbdff8048409dac3bf0d4a9002, type: 3}
+      propertyPath: attackDelayB
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 450927830003364503, guid: 770625cbdff8048409dac3bf0d4a9002, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -27993,17 +27990,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: zombiegirl_w_kurniawan
       objectReference: {fileID: 0}
-    - target: {fileID: 4504588676687417593, guid: 770625cbdff8048409dac3bf0d4a9002, type: 3}
-      propertyPath: TargetMask.m_Bits
-      value: 64
-      objectReference: {fileID: 0}
-    - target: {fileID: 4504588676687417593, guid: 770625cbdff8048409dac3bf0d4a9002, type: 3}
-      propertyPath: TargetList.Array.size
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4522937051851006569, guid: 770625cbdff8048409dac3bf0d4a9002, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5865795528074609818, guid: 770625cbdff8048409dac3bf0d4a9002, type: 3}
       propertyPath: m_Constraints

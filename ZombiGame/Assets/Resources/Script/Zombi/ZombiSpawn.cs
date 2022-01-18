@@ -33,6 +33,14 @@ public class ZombiSpawn : MonoBehaviour
                 -10.0f,
                 Random.Range(WayPointManager.GetInstance().PointA.y,
                 WayPointManager.GetInstance().PointB.y));
+
+                Obj.transform.Rotate( new Vector3(
+               0,
+               Random.Range(-180,
+               180),
+               0));
+
+
                 ZombiObjectManager.GetInstance.GetDisableList.Push(Obj);
 
                 Obj.transform.parent = ZombiParent.transform;

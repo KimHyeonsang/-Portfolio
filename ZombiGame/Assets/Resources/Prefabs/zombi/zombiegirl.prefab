@@ -294,8 +294,9 @@ GameObject:
   - component: {fileID: 1652810664722602336}
   - component: {fileID: 5865795528074609818}
   - component: {fileID: 4522937051851006569}
-  - component: {fileID: 4504588676687417593}
   - component: {fileID: 6742209782767501118}
+  - component: {fileID: -2090017610402877768}
+  - component: {fileID: 6920634554415252506}
   m_Layer: 0
   m_Name: zombiegirl
   m_TagString: Untagged
@@ -370,19 +371,6 @@ CapsuleCollider:
   m_Height: 1.9
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
---- !u!114 &4504588676687417593
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 939516006362015789}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc68eb1d50d33dc448f841a89035e5a6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Target: {fileID: 0}
 --- !u!114 &6742209782767501118
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -405,6 +393,40 @@ MonoBehaviour:
     m_Bits: 128
   TargetList: []
   Attack: 0
+--- !u!114 &-2090017610402877768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 939516006362015789}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1001c30d3dee7044186c277e6f91a356, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Dmg: 3
+  AttackSpeed: 0
+  MoveSpeed: 0.3
+  attackDelay: 1.7
+  attackDelayA: 0.5
+  attackDelayB: 0.1
+  Range: 4
+  Anim: {fileID: 0}
+--- !u!114 &6920634554415252506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 939516006362015789}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 005875cc0ed49d845839234b043ee8e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentZombi: {fileID: 0}
+  Target: {fileID: 0}
 --- !u!1 &1067467717442372830
 GameObject:
   m_ObjectHideFlags: 0

@@ -4,15 +4,34 @@ using UnityEngine;
 
 public class ZombiAnimation : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private Animator Anim;
+    private Zombiview view;
+
+    private bool JumpCheck;
+    private bool Runing;
+    private void Awake()
     {
-        
+        Anim = GetComponent<Animator>();
+        view = GetComponent<Zombiview>();
+
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        
+
+    }
+
+    private void Update()
+    {
+        if (view.Attack == true)
+        {
+            Anim.SetBool("Walk", true);
+            Anim.SetBool("Idle", false);
+        }
+        else
+        {
+            Anim.SetBool("Walk", false);
+            Anim.SetBool("Idle", true);
+        }
     }
 }
