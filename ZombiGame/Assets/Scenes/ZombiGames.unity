@@ -27926,6 +27926,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -5054502628476737212, guid: 770625cbdff8048409dac3bf0d4a9002, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -2090017610402877768, guid: 770625cbdff8048409dac3bf0d4a9002, type: 3}
+      propertyPath: Anim
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: -2090017610402877768, guid: 770625cbdff8048409dac3bf0d4a9002, type: 3}
       propertyPath: Range
       value: 4

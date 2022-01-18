@@ -8,6 +8,7 @@ public abstract class ZombiControl : MonoBehaviour
 
     [SerializeField]
     protected Zombi currentZombi; // 현재 좀비 
+ //   protected ZombiAnimation ZombiAnime; // 현재 좀비 
 
     protected bool isAttack = false;  // 현재 공격 중인지 
     protected bool isSwing = false;  // 팔을 휘두르는 중인지. isSwing = True 일 때만 데미지를 적용할 것이다.
@@ -17,19 +18,23 @@ public abstract class ZombiControl : MonoBehaviour
     
     // 공격시도
     protected void TryAttack()
-    {       
-        if (!isAttack)
+    {
+        if (Input.GetMouseButton(0))
         {
-            StartCoroutine(AttackCoroutine());
-        }        
+            currentZombi = GetComponent<Zombi>();
+            if (!isAttack)
+            {
+                StartCoroutine(AttackCoroutine());
+            }
+        }
     }
 
     protected void MoveSpeed()
     {
         if(!isSpeed)
         {
-            currentZombi.Anim.SetBool("Walk", true);
-            currentZombi.Anim.SetBool("Idle", false);
+    //        ZombiAnime.Anim.SetBool("Walk", true);
+    //        ZombiAnime.Anim.SetBool("Idle", false);
         }
             
     }
@@ -37,18 +42,19 @@ public abstract class ZombiControl : MonoBehaviour
     protected IEnumerator AttackCoroutine()
     {
         isAttack = true;
+        currentZombi.Anim.SetBool("Idle",false);
         currentZombi.Anim.SetTrigger("Attack");
 
         yield return new WaitForSeconds(currentZombi.attackDelayA);
         isSwing = true;
 
-        StartCoroutine(HitCoroutine());
-
-        yield return new WaitForSeconds(currentZombi.attackDelayB);
-        isSwing = false;
-
-        yield return new WaitForSeconds(currentZombi.attackDelay - currentZombi.attackDelayA - currentZombi.attackDelayB);
-        isAttack = false;
+       StartCoroutine(HitCoroutine());
+    
+       yield return new WaitForSeconds(currentZombi.attackDelayB);
+       isSwing = false;
+    
+       yield return new WaitForSeconds(currentZombi.attackDelay - currentZombi.attackDelayA - currentZombi.attackDelayB);
+       isAttack = false;
     }
 
     // 공격에 맞은 오브젝트가 무엇인지 확인한다.

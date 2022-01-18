@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ZombiAnimation : MonoBehaviour
 {
-    private Animator Anim;
+    public Animator Anim;
     private Zombiview view;
 
     private bool JumpCheck;

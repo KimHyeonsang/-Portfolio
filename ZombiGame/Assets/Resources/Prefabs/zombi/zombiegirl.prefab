@@ -297,6 +297,7 @@ GameObject:
   - component: {fileID: 6742209782767501118}
   - component: {fileID: -2090017610402877768}
   - component: {fileID: 6920634554415252506}
+  - component: {fileID: -5054502628476737212}
   m_Layer: 0
   m_Name: zombiegirl
   m_TagString: Untagged
@@ -427,6 +428,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentZombi: {fileID: 0}
   Target: {fileID: 0}
+--- !u!114 &-5054502628476737212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 939516006362015789}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c94bdcc493c92e04ca516f966e7a5049, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1067467717442372830
 GameObject:
   m_ObjectHideFlags: 0
