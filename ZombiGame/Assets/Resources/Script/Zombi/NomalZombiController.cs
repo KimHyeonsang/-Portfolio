@@ -10,6 +10,9 @@ public class NomalZombiController : ZombiControl
     [SerializeField] private GameObject Target;
     public static bool isActivate = true;
     public static bool isMoveActivate = false;
+
+    private bool Moving = false;
+    private Vector3 WaypointTarget;
     private void Awake()
     {
         view = GetComponent<Zombiview>();
@@ -19,6 +22,7 @@ public class NomalZombiController : ZombiControl
     private void Start()
     {
         Target = GameObject.FindWithTag("Player");
+ //       WaypointTarget = WayPointManager.GetInstance().TargetPoint;
     }
 
     private void Update()
@@ -29,14 +33,24 @@ public class NomalZombiController : ZombiControl
             if (isActivate)
                 TryAttack();
         }        
-        // 인식 범위 안에 들어오면
-        
+        // 인식 범위 안에 들어오면        
         else if (isMoveActivate)
         {
             TryMove();
             transform.LookAt(Target.transform);
             transform.position = Vector3.MoveTowards(transform.position, Target.transform.position, zombi.MoveSpeed * Time.deltaTime);
         }
+ //       else if(Moving)
+ //       {
+ //           TryMove();
+ //           transform.LookAt(WayPointManager.GetInstance().TargetPoint);
+ //           transform.position = Vector3.MoveTowards(transform.position, WayPointManager.GetInstance().TargetPoint, zombi.MoveSpeed * Time.deltaTime);
+ //
+ //       }
+ //       else
+ //       {
+ //           GetDirection();
+ //       }
         
     }
 
@@ -50,4 +64,30 @@ public class NomalZombiController : ZombiControl
             yield return null;
         }
     }
+    private void  GetDirection()
+    {
+        Moving = true;
+
+        
+
+    }
+
+ //   private void OnCollisionEnter(Collision collision)
+ //   {
+ //       if (collision.transform.tag == "Node")
+ //       {
+ //           int NodeNumber = WayPointManager.GetInstance().NodeNumber;
+ //
+ //           ++NodeNumber;
+ //           Moving = false;
+ //
+ //           if (NodeNumber > 5)
+ //           {
+ //               NodeNumber = 0;
+ //           }
+ //           WayPointManager.GetInstance().NodeNumber = NodeNumber;
+ //           WayPointManager.GetInstance().TargetPoint = WayPoint.WayPointList[WayPointManager.GetInstance().NodeNumber].transform.position; ;
+ //           //   WayPointManager.GetInstance().TargetPoint = WayPointList[NodeNumber].transform.position;
+ //       }
+ //   }
 }

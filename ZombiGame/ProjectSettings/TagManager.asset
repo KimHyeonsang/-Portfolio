@@ -10,6 +10,8 @@ TagManager:
   - smg
   - shotgun
   - WeaponPoint
+  - NoSpawn
+  - Node
   layers:
   - Default
   - TransparentFX

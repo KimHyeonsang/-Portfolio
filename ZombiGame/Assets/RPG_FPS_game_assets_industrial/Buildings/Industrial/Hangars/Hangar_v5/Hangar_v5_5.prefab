@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 65000013619628680}
   m_Layer: 7
   m_Name: Hangar_v5_5
-  m_TagString: Untagged
+  m_TagString: NoSpawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

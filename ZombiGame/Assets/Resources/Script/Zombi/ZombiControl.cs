@@ -36,7 +36,14 @@ public abstract class ZombiControl : MonoBehaviour
             currentZombi.Anim.SetBool("Walking", false);
 
     }
+    protected void Idle()
+    {
+        currentZombi = GetComponent<Zombi>();
+       
+        currentZombi.Anim.SetTrigger("Idle");
+       
 
+    }
     protected void Die()
     {
         currentZombi = GetComponent<Zombi>();

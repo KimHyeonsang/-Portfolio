@@ -25,15 +25,18 @@ public class ZombiSpawn : MonoBehaviour
         {
             for(int i = 0;i < 60; ++i)
             {
+                //waypoint
                 GameObject Obj = Instantiate(NomalZombiPrefab);
                 Obj.transform.name = "NomalZombi";
+
+                //  waypointmanayer
                 Obj.transform.position = new Vector3(
                 Random.Range(WayPointManager.GetInstance().PointA.x,
                 WayPointManager.GetInstance().PointB.x),
                 -10.0f,
                 Random.Range(WayPointManager.GetInstance().PointA.y,
                 WayPointManager.GetInstance().PointB.y));
-
+                // waypoint
                 Obj.transform.Rotate( new Vector3(
                0,
                Random.Range(-180,
