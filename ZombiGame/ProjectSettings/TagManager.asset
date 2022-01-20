@@ -21,9 +21,9 @@ TagManager:
   - UI
   - Player
   - Obstacle
-  - 
-  - 
-  - 
+  - Bullet
+  - ZombiSpawn
+  - Enumy
   - 
   - 
   - 

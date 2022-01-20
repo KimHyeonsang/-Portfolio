@@ -45,6 +45,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Radius: {x: 5, y: 5}
   WayPointPrefab: {fileID: 0}
-  WayPointCount: 5
-  WayPointList: []
+  WayPointCount: 3
   Diretion: {x: 0, y: 0, z: 0}

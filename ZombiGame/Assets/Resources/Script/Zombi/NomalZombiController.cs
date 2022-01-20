@@ -11,8 +11,8 @@ public class NomalZombiController : ZombiControl
     public static bool isActivate = true;
     public static bool isMoveActivate = false;
 
+    public GameObject[] pointPos;
     private bool Moving = false;
-    private Vector3 WaypointTarget;
     private void Awake()
     {
         view = GetComponent<Zombiview>();
@@ -22,7 +22,24 @@ public class NomalZombiController : ZombiControl
     private void Start()
     {
         Target = GameObject.FindWithTag("Player");
- //       WaypointTarget = WayPointManager.GetInstance().TargetPoint;
+
+        pointPos = GameObject.FindGameObjectsWithTag("Node");
+
+        for(int i=0;i<pointPos.Length;++i)
+        {
+            Debug.Log(pointPos[i].transform.position);
+        }
+        // 몇번째 노드인지 저장
+        //   for (int i = 0; i < WayPoint.WayPointList.Count; ++i)
+        //   {
+        //       Debug.Log(WayPoint.WayPointList[i].transform.position);
+        //   }
+
+        //   Debug.Log(WayPoint.WayPointList.Count);
+
+        //    pointPos[0].transform.position = WayPoint.WayPointList[WayPointManager.GetInstance().NodeNumber].transform.position;
+        //    WayPointManager.GetInstance().TargetPoint = WayPoint.WayPointList[0].transform.GetChild(0).transform.position;
+        //   Debug.Log(WayPointManager.GetInstance().TargetPoint);
     }
 
     private void Update()
@@ -45,7 +62,7 @@ public class NomalZombiController : ZombiControl
  //           TryMove();
  //           transform.LookAt(WayPointManager.GetInstance().TargetPoint);
  //           transform.position = Vector3.MoveTowards(transform.position, WayPointManager.GetInstance().TargetPoint, zombi.MoveSpeed * Time.deltaTime);
- //
+ //       
  //       }
  //       else
  //       {
@@ -67,27 +84,26 @@ public class NomalZombiController : ZombiControl
     private void  GetDirection()
     {
         Moving = true;
-
-        
-
+     //   Vector3 Node = WayPointManager.GetInstance().TargetPoint;
     }
 
- //   private void OnCollisionEnter(Collision collision)
- //   {
- //       if (collision.transform.tag == "Node")
- //       {
- //           int NodeNumber = WayPointManager.GetInstance().NodeNumber;
- //
- //           ++NodeNumber;
- //           Moving = false;
- //
- //           if (NodeNumber > 5)
- //           {
- //               NodeNumber = 0;
- //           }
- //           WayPointManager.GetInstance().NodeNumber = NodeNumber;
- //           WayPointManager.GetInstance().TargetPoint = WayPoint.WayPointList[WayPointManager.GetInstance().NodeNumber].transform.position; ;
- //           //   WayPointManager.GetInstance().TargetPoint = WayPointList[NodeNumber].transform.position;
- //       }
- //   }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.transform.tag == "Node")
+        {
+            int NodeNumber = WayPointManager.GetInstance().NodeNumber;
+ 
+            ++NodeNumber;
+            Moving = false;
+ 
+            if (NodeNumber > 3)
+            {
+                NodeNumber = 0;
+            }
+            WayPointManager.GetInstance().NodeNumber = NodeNumber;
+            WayPointManager.GetInstance().TargetPoint = WayPoint.WayPointList[0].transform.GetChild(NodeNumber).transform.position;
+            //   WayPointManager.GetInstance().TargetPoint = WayPointList[NodeNumber].transform.position;
+        }
+    }
 }

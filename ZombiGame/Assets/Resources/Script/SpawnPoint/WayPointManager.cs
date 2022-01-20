@@ -52,19 +52,20 @@ public class WayPointManager : MonoBehaviour
     }
     private void Start()
     {
+        // 저장된 노드 갯수
         NodeNumber = 0;
 
-        TargetPoint = new Vector3(0.0f, -0.0f, 0.0f);
+        TargetPoint = new Vector3(0.0f, 0.0f, 0.0f);
 
-        for (int i = 0; i < 60; ++i)
+        for (int i = 0; i < 2; ++i)
         {
             GameObject Obj = Instantiate(WayPointList);
             Obj.transform.parent = WayPointParent.transform;
             Obj.transform.position = new Vector3(Random.Range(-21, 70),
-                0.0f,
+                1.0f,
                 Random.Range(-40, 20));
-
         }
+
         // 저장된 좀비 수만큼 저장
         for (int i = 0; i < ZombiObjectManager.GetInstance.GetDisableList.Count; ++i)
         {

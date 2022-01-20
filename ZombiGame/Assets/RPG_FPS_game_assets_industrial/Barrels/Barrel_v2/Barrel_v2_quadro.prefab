@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 64000010569802236}
   m_Layer: 0
   m_Name: Barrel_v2_quadro
-  m_TagString: Untagged
+  m_TagString: NoSpawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -75,6 +75,7 @@
     <Compile Include="Assets\Low Poly Guns\Scripts\GunView.cs" />
     <Compile Include="Assets\Resources\Script\Weapon\CloseWeaponController.cs" />
     <Compile Include="Assets\Resources\Script\SpawnPoint\WayPoint.cs" />
+    <Compile Include="Assets\Resources\Script\SpawnPoint\MyGizmo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

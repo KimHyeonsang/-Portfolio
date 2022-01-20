@@ -24,7 +24,11 @@ public class GameManager : MonoBehaviour
         }
        
     }
-    
+
+    private void Start()
+    {
+        WayPointManager.GetInstance();
+    }
     public GameObject Spawn()
     {
        PlayerSwan = Resources.Load("Prefabs/Players/Player") as GameObject;

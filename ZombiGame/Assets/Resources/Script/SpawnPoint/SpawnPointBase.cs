@@ -12,7 +12,7 @@ public class SpawnPointBase : MonoBehaviour
         {
             transform.position = new Vector3(
                 Random.Range(WayPointManager.GetInstance().PointA.x, WayPointManager.GetInstance().PointB.x),
-                -10.0f,
+                0.0f,
                Random.Range(WayPointManager.GetInstance().PointA.y, WayPointManager.GetInstance().PointB.y));
         }
         
