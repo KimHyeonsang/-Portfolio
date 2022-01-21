@@ -39,4 +39,6 @@ public class ZombiObjectManager : MonoBehaviour
             return DisableList;
         }
     }
+
+    
 }

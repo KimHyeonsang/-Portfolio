@@ -13,8 +13,9 @@ public class WayPoint : MonoBehaviour
     // 몬스터가 처음가야할 번호
     [SerializeField] private Vector3 Diretion;
 
-    
-    private float fTime = 5.0f;
+    IEnumerator myCoroutine;
+    private float fMonsterTime = 5.0f;
+    private float fTime = 3.0f;
 
     private void Awake()
     {
@@ -25,8 +26,8 @@ public class WayPoint : MonoBehaviour
 
     private void Start()
     {
-        WayPointManager.GetInstance().PointA = new Vector2(transform.position.x - Radius.x, transform.position.z + Radius.y);
-        WayPointManager.GetInstance().PointB = new Vector2(transform.position.x + Radius.x, transform.position.z - Radius.y);
+        WayPointManager.GetInstance().WayPointA = new Vector2(transform.position.x - Radius.x, transform.position.z + Radius.y);
+        WayPointManager.GetInstance().WayPointB = new Vector2(transform.position.x + Radius.x, transform.position.z - Radius.y);
 
         for(int i = 0;i < WayPointCount;++i)
         {
@@ -35,34 +36,29 @@ public class WayPoint : MonoBehaviour
             Obj.AddComponent<Rigidbody>();
             Obj.AddComponent<BoxCollider>();
 
+            
+           
             Obj.GetComponent<Rigidbody>().freezeRotation = true;
             Obj.transform.parent = transform;
 
             Obj.transform.position = new Vector3(
-                Random.Range(WayPointManager.GetInstance().PointA.x,
-                WayPointManager.GetInstance().PointB.x),
-                1.0f,
-                Random.Range(WayPointManager.GetInstance().PointA.y,
-                WayPointManager.GetInstance().PointB.y));
+                Random.Range(WayPointManager.GetInstance().WayPointA.x,
+                WayPointManager.GetInstance().WayPointB.x),
+                -5.0f,
+                Random.Range(WayPointManager.GetInstance().WayPointA.y,
+                WayPointManager.GetInstance().WayPointB.y));
 
-            // 순서대로 다 저장
-            WayPointList.Add(Obj);
+            myCoroutine = SaveWayPoint(Obj);
+            StartCoroutine(myCoroutine);
+            
         }
         // 몬스터 소환
         StartCoroutine("CreateEnemy");
-        
-        // 지금 번호를 불러온다
-        int NodeNumber = WayPointManager.GetInstance().NodeNumber;
-
-        // 지금 타겟된 위치는 WayPointList[NodeNumber]의 위치를 부른다.
-        WayPointManager.GetInstance().TargetPoint = WayPointList[NodeNumber].transform.position;
-        // 부른뒤 NodeNumber를 waypoint만큼 저장한다
-        WayPointManager.GetInstance().NodeNumber = WayPointList.Count;
     }
 
     IEnumerator CreateEnemy()
     {
-        yield return new WaitForSeconds(fTime);
+        yield return new WaitForSeconds(fMonsterTime);
 
         GameObject Enemy = Instantiate(WayPointManager.GetInstance().NomalZombiPrefab);
         Enemy.transform.name = "NomalZombi";
@@ -75,5 +71,15 @@ public class WayPoint : MonoBehaviour
 
         Enemy.transform.parent = WayPointManager.GetInstance().ZombiParent.transform;
         ZombiObjectManager.GetInstance.GetDisableList.Push(Enemy);
+       
+        
+    }
+
+    IEnumerator SaveWayPoint(GameObject _Obj)
+    {
+        yield return new WaitForSeconds(fTime);
+
+        // 순서대로 다 저장
+        WayPointList.Add(_Obj);
     }
 }

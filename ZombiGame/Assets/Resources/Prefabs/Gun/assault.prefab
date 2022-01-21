@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8720303769743983609}
   - component: {fileID: 6836544887308416819}
   - component: {fileID: 1477259935085740805}
-  - component: {fileID: 5827148976333018010}
+  - component: {fileID: -7330747170717044491}
   m_Layer: 0
   m_Name: assault
   m_TagString: assault
@@ -96,7 +96,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1.1732898, z: 4.895917}
   m_Center: {x: -0.005947288, y: 0.20827577, z: 0.031448126}
---- !u!114 &5827148976333018010
+--- !u!114 &-7330747170717044491
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -105,6 +105,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 5035223576696346342}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 735cc88fd46f3d84881b89c05e7e3d33, type: 3}
+  m_Script: {fileID: 11500000, guid: d559185cca36fb441acd7219ed79c86c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

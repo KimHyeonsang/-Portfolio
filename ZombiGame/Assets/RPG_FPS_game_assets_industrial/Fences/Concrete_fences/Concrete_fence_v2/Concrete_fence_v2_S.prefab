@@ -46,7 +46,7 @@ GameObject:
   - component: {fileID: 65000012913242684}
   m_Layer: 7
   m_Name: Concrete_fence_v2_S
-  m_TagString: Untagged
+  m_TagString: NoSpawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -141,7 +141,7 @@ GameObject:
   - component: {fileID: 65000010613152302}
   m_Layer: 7
   m_Name: Concrete_fence_v2_lattice_S
-  m_TagString: Untagged
+  m_TagString: NoSpawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295

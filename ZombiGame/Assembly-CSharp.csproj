@@ -71,11 +71,12 @@
     <Compile Include="Assets\Resources\Script\Zombi\ZombiControl.cs" />
     <Compile Include="Assets\Resources\Script\Player\PlayerStamina.cs" />
     <Compile Include="Assets\Resources\Script\Player\PlayerHpControl.cs" />
+    <Compile Include="Assets\Resources\Script\SpawnPoint\MyGizmo.cs" />
     <Compile Include="Assets\Resources\Script\Complete.cs" />
     <Compile Include="Assets\Low Poly Guns\Scripts\GunView.cs" />
     <Compile Include="Assets\Resources\Script\Weapon\CloseWeaponController.cs" />
     <Compile Include="Assets\Resources\Script\SpawnPoint\WayPoint.cs" />
-    <Compile Include="Assets\Resources\Script\SpawnPoint\MyGizmo.cs" />
+    <Compile Include="Assets\Resources\Script\Weapon\WeaponSpawnBase.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

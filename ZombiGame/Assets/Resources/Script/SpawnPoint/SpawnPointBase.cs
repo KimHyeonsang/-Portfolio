@@ -11,9 +11,14 @@ public class SpawnPointBase : MonoBehaviour
             && collision.transform.tag == "NoSpawn")
         {
             transform.position = new Vector3(
-                Random.Range(WayPointManager.GetInstance().PointA.x, WayPointManager.GetInstance().PointB.x),
+                Random.Range(WayPointManager.GetInstance().WayPointA.x, WayPointManager.GetInstance().WayPointB.x),
                 0.0f,
-               Random.Range(WayPointManager.GetInstance().PointA.y, WayPointManager.GetInstance().PointB.y));
+               Random.Range(WayPointManager.GetInstance().WayPointA.y, WayPointManager.GetInstance().WayPointB.y));
+        }
+        else
+        {
+            this.GetComponent<Rigidbody>().useGravity = false;
+            this.GetComponent<Rigidbody>().isKinematic = true;
         }
         
     }

@@ -14,7 +14,7 @@ public abstract class ZombiControl : MonoBehaviour
     protected bool isSpeed = false; // 적이 보이면 이동
     protected RaycastHit hitInfo;  // 현재 좀비 공격에 닿은 것들의 정보.
 
-    
+    protected int ZombiNumber;
     // 공격시도
     protected void TryAttack()
     {

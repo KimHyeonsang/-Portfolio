@@ -8,11 +8,13 @@ public class NomalZombiController : ZombiControl
     private Zombi zombi;
 
     [SerializeField] private GameObject Target;
+
+    private Vector3 WayPointTarget;
+    private int NodeNumber;
     public static bool isActivate = true;
     public static bool isMoveActivate = false;
 
-    public GameObject[] pointPos;
-    private bool Moving = false;
+    private bool Moving = true;
     private void Awake()
     {
         view = GetComponent<Zombiview>();
@@ -23,12 +25,14 @@ public class NomalZombiController : ZombiControl
     {
         Target = GameObject.FindWithTag("Player");
 
-        pointPos = GameObject.FindGameObjectsWithTag("Node");
+        ZombiNumber = WayPointManager.GetInstance().NodeNumber;
+        WayPointManager.GetInstance().NodeNumber += 1;
+        NodeNumber = ZombiNumber * 3;
 
-        for(int i=0;i<pointPos.Length;++i)
-        {
-            Debug.Log(pointPos[i].transform.position);
-        }
+        WayPointTarget = WayPoint.WayPointList[NodeNumber].transform.position;
+
+
+
         // 몇번째 노드인지 저장
         //   for (int i = 0; i < WayPoint.WayPointList.Count; ++i)
         //   {
@@ -57,17 +61,14 @@ public class NomalZombiController : ZombiControl
             transform.LookAt(Target.transform);
             transform.position = Vector3.MoveTowards(transform.position, Target.transform.position, zombi.MoveSpeed * Time.deltaTime);
         }
- //       else if(Moving)
- //       {
- //           TryMove();
- //           transform.LookAt(WayPointManager.GetInstance().TargetPoint);
- //           transform.position = Vector3.MoveTowards(transform.position, WayPointManager.GetInstance().TargetPoint, zombi.MoveSpeed * Time.deltaTime);
- //       
- //       }
- //       else
- //       {
- //           GetDirection();
- //       }
+
+       else if(Moving)
+       {
+           TryMove();
+           transform.LookAt(WayPointTarget);
+           transform.position = Vector3.MoveTowards(transform.position, WayPointTarget, zombi.MoveSpeed * Time.deltaTime);
+       
+       }
         
     }
 
@@ -81,29 +82,26 @@ public class NomalZombiController : ZombiControl
             yield return null;
         }
     }
-    private void  GetDirection()
-    {
-        Moving = true;
-     //   Vector3 Node = WayPointManager.GetInstance().TargetPoint;
-    }
 
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.transform.tag == "Node")
+   private void OnCollisionEnter(Collision collision)
+   {
+        if(WayPointTarget == collision.transform.position)
         {
-            int NodeNumber = WayPointManager.GetInstance().NodeNumber;
- 
             ++NodeNumber;
-            Moving = false;
- 
-            if (NodeNumber > 3)
+
+            if (NodeNumber > ((ZombiNumber + 1) * 3) - 1)
             {
                 NodeNumber = 0;
             }
-            WayPointManager.GetInstance().NodeNumber = NodeNumber;
-            WayPointManager.GetInstance().TargetPoint = WayPoint.WayPointList[0].transform.GetChild(NodeNumber).transform.position;
-            //   WayPointManager.GetInstance().TargetPoint = WayPointList[NodeNumber].transform.position;
+            WayPointTarget = WayPoint.WayPointList[NodeNumber].transform.position;
         }
-    }
+
+     //   if(collision.transform.tag == "Ground")
+     //   {
+     //       this.transform.localEulerAngles = new Vector3(0, this.transform.rotation.y, 0);
+     //   }
+
+   }
+ 
 }

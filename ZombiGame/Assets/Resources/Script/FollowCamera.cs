@@ -38,7 +38,7 @@ public class FollowCamera : MonoBehaviour
         float xRotateSize = -Input.GetAxis("Mouse Y") * TurnSpeed;
         // 위아래 회전량을 더해주지만 -45도 ~ 80도로 제한
         // Clamp 는 값의 범위를 제한하는 함수
-        xRotate = Mathf.Clamp(xRotate + xRotateSize, -45, 80);
+        xRotate = Mathf.Clamp(xRotate + xRotateSize, -45, 30);
 
         // 카메라 회전량을 카메라에 반영(X, Y축만 회전)
         transform.eulerAngles = new Vector3(xRotate, yRotate, 0);

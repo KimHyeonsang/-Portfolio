@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4364217478167431181}
   - component: {fileID: 1978250003351108807}
   - component: {fileID: 2052960577034875862}
-  - component: {fileID: 5696238354386924721}
+  - component: {fileID: -5051252008713412001}
   m_Layer: 0
   m_Name: shotgun
   m_TagString: shotgun
@@ -96,7 +96,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1.1385669, z: 6.0916166}
   m_Center: {x: -0.008700721, y: 0.22193724, z: -0.40894532}
---- !u!114 &5696238354386924721
+--- !u!114 &-5051252008713412001
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -105,6 +105,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 32892532979916050}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 735cc88fd46f3d84881b89c05e7e3d33, type: 3}
+  m_Script: {fileID: 11500000, guid: d559185cca36fb441acd7219ed79c86c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
