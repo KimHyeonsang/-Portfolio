@@ -24,8 +24,8 @@ public class WayPointManager : MonoBehaviour
     [SerializeField] public GameObject ZombiParent = null;
     [SerializeField] public GameObject WayPointParent = null;
     [SerializeField] public GameObject NomalZombiPrefab = null;
-//    [SerializeField] public GameObject SpeedZombiPrefab = null;
-//    [SerializeField] public GameObject TankerZombiPrefab = null;
+    [SerializeField] public GameObject SpeedZombiPrefab = null;
+    [SerializeField] public GameObject TankerZombiPrefab = null;
 
     [Tooltip("Node Prefab")]
     [HideInInspector] public GameObject WayPointList;
@@ -49,6 +49,8 @@ public class WayPointManager : MonoBehaviour
         ZombiParent = new GameObject("ZombiParents");
         WayPointParent = new GameObject("WayPointParents");
         NomalZombiPrefab = Resources.Load("Prefabs/zombi/zombiegirl") as GameObject;
+        SpeedZombiPrefab = Resources.Load("Prefabs/zombi/SpeedZombi") as GameObject;
+        TankerZombiPrefab = Resources.Load("Prefabs/zombi/TankerZombi") as GameObject;
         WayPointList = Resources.Load("Prefabs/WayPointList") as GameObject;
         NodeList = new List<GameObject>();
     }
@@ -59,7 +61,7 @@ public class WayPointManager : MonoBehaviour
 
         TargetPoint = new Vector3(0.0f, 0.0f, 0.0f);
 
-        for (int i = 0; i < 60; ++i)
+        for (int i = 0; i < 100; ++i)
         {
             GameObject Obj = Instantiate(WayPointList);
             Obj.transform.parent = WayPointParent.transform;

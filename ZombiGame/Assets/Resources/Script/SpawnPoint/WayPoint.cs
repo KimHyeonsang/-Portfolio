@@ -9,10 +9,13 @@ public class WayPoint : MonoBehaviour
     [SerializeField] public GameObject WayPointPrefab;
     [SerializeField] public int WayPointCount;
     [SerializeField] static public List<GameObject> WayPointList = new List<GameObject>();
+    [SerializeField] static public int NomalZombiCount = 0;
+    [SerializeField] static public int SpeedZombiCount = 0;
+    [SerializeField] static public int TankerZombiCount = 0;
 
     // 몬스터가 처음가야할 번호
     [SerializeField] private Vector3 Diretion;
-
+    public GameObject Enemy;
     IEnumerator myCoroutine;
     private float fMonsterTime = 5.0f;
     private float fTime = 3.0f;
@@ -59,9 +62,26 @@ public class WayPoint : MonoBehaviour
     IEnumerator CreateEnemy()
     {
         yield return new WaitForSeconds(fMonsterTime);
+        
+        if (NomalZombiCount < ZombiObjectManager.GetInstance.MaxNomalZombi)
+        {
+            ++NomalZombiCount;
+            Enemy = Instantiate(WayPointManager.GetInstance().NomalZombiPrefab);
+            Enemy.transform.name = "NomalZombi";
+        }
+        else if(SpeedZombiCount < ZombiObjectManager.GetInstance.MaxSpeedZombi)
+        {
+            ++SpeedZombiCount;
+            Enemy = Instantiate(WayPointManager.GetInstance().SpeedZombiPrefab);
+            Enemy.transform.name = "SpeedZombi";
+        }
+        else if (TankerZombiCount < ZombiObjectManager.GetInstance.MaxTankerZombi)
+        {
+            ++TankerZombiCount;
+            Enemy = Instantiate(WayPointManager.GetInstance().TankerZombiPrefab);
+            Enemy.transform.name = "TankerZombi";
+        }
 
-        GameObject Enemy = Instantiate(WayPointManager.GetInstance().NomalZombiPrefab);
-        Enemy.transform.name = "NomalZombi";
         Enemy.transform.Rotate(new Vector3(
               0,
               Random.Range(-180,

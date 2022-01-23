@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 6836544887308416819}
   - component: {fileID: 1477259935085740805}
   - component: {fileID: -7330747170717044491}
+  - component: {fileID: 3534291048703721033}
+  - component: {fileID: -2716861747532312892}
   m_Layer: 0
   m_Name: assault
   m_TagString: assault
@@ -106,5 +108,37 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d559185cca36fb441acd7219ed79c86c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3534291048703721033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5035223576696346342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6d58dfa29993274cb793bc7e827cd21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Damage: 50
+  MaxRange: 60
+  AttackDelay: 2
+  Reroad: 4
+  attackDelay: 1
+  attackDelayA: 0.5
+  attackDelayB: 0.1
+  anim: {fileID: 0}
+--- !u!114 &-2716861747532312892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5035223576696346342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f76b0f7e7f7afac4bb58debe7617538b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

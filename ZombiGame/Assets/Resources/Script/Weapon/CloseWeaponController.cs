@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CloseWeaponController : MonoBehaviour
+public abstract class CloseWeaponController : MonoBehaviour
 {
     [SerializeField]
     protected CloseWeapon currentWeapon; // 현재 장착된 무기
@@ -12,6 +12,43 @@ public class CloseWeaponController : MonoBehaviour
 
     protected RaycastHit hitInfo;  // 현재 무기(Hand)에 닿은 것들의 정보.
 
-  
-    
+
+    // 공격시도
+    protected void TryAttack()
+    {
+        currentWeapon = GetComponent<CloseWeapon>();
+        if (!isAttack)
+        {
+            StartCoroutine(AttackCoroutine());
+        }
+    }
+
+    protected IEnumerator AttackCoroutine()
+    {
+        isAttack = true;
+        //    currentWeapon.Anim.SetTrigger("Attack");
+
+        yield return new WaitForSeconds(currentWeapon.attackDelayA);
+        isSwing = true;
+
+        StartCoroutine(HitCoroutine());
+
+        yield return new WaitForSeconds(currentWeapon.attackDelayB);
+        isSwing = false;
+
+        yield return new WaitForSeconds(currentWeapon.attackDelay - currentWeapon.attackDelayA - currentWeapon.attackDelayB);
+        isAttack = false;
+    }
+
+    // 공격에 맞은 오브젝트가 무엇인지 확인한다.
+    protected bool CheckObject()
+    {
+        if (Physics.Raycast(transform.position, transform.forward, out hitInfo, currentWeapon.MaxRange))
+        {
+            return true;
+        }
+
+        return false;
+    }
+    protected abstract IEnumerator HitCoroutine();
 }

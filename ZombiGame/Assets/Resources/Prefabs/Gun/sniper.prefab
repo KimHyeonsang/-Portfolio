@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 709541173785935846}
   - component: {fileID: 1205700544910554778}
   - component: {fileID: -8451003304966777100}
+  - component: {fileID: -7768997821214486838}
   m_Layer: 0
   m_Name: sniper
   m_TagString: sniper
@@ -108,3 +109,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d559185cca36fb441acd7219ed79c86c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-7768997821214486838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1357896310676102707}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6d58dfa29993274cb793bc7e827cd21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Damage: 80
+  MaxRange: 80
+  AttackDelay: 2
+  Reroad: 4
+  attackDelay: 1
+  attackDelayA: 0.5
+  attackDelayB: 0.1
+  anim: {fileID: 0}

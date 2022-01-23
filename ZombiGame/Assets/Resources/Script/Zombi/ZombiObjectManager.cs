@@ -6,6 +6,9 @@ public class ZombiObjectManager : MonoBehaviour
 {
     private static ZombiObjectManager Instance = null;
 
+    public int MaxNomalZombi = 60;
+    public int MaxSpeedZombi = 25;
+    public int MaxTankerZombi = 15;
     public static ZombiObjectManager GetInstance
     {
         get
