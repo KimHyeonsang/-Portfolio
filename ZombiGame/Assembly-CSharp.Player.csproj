@@ -61,13 +61,17 @@
     <Compile Include="Assets\Resources\Script\FollowCamera.cs" />
     <Compile Include="Assets\Resources\Script\Zombi\NomalZombiController.cs" />
     <Compile Include="Assets\Resources\Script\Player\PlayerContorl.cs" />
+    <Compile Include="Assets\Resources\Script\Zombi\SpeedZombiControllor.cs" />
     <Compile Include="Assets\Resources\Script\WeaPonBulletDrop.cs" />
     <Compile Include="Assets\Resources\Script\Player\PlayerAnimetion.cs" />
+    <Compile Include="Assets\Resources\Script\Weapon\WeaponSpawnBase.cs" />
     <Compile Include="Assets\Resources\Script\Zombi\Zombi.cs" />
     <Compile Include="Assets\Resources\Script\Zombi\Zombiview.cs" />
     <Compile Include="Assets\Resources\Script\Zombi\ZombiSpawn.cs" />
     <Compile Include="Assets\Resources\Script\SpawnPoint\SpawnPointBase.cs" />
+    <Compile Include="Assets\Resources\Script\Zombi\TankerZombiController.cs" />
     <Compile Include="Assets\Resources\Script\GameManager.cs" />
+    <Compile Include="Assets\Resources\Script\Weapon\Assault.cs" />
     <Compile Include="Assets\Resources\Script\Zombi\ZombiControl.cs" />
     <Compile Include="Assets\Resources\Script\Player\PlayerStamina.cs" />
     <Compile Include="Assets\Resources\Script\Player\PlayerHpControl.cs" />
@@ -76,7 +80,7 @@
     <Compile Include="Assets\Low Poly Guns\Scripts\GunView.cs" />
     <Compile Include="Assets\Resources\Script\Weapon\CloseWeaponController.cs" />
     <Compile Include="Assets\Resources\Script\SpawnPoint\WayPoint.cs" />
-    <Compile Include="Assets\Resources\Script\Weapon\WeaponSpawnBase.cs" />
+    <Compile Include="Assets\Resources\Script\FollowWeaponCamera.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

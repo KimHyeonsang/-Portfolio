@@ -93,7 +93,7 @@ public class PlayerContorl : MonoBehaviour
         }
 
         // ** 스테미너 값이 0 초과일경우
-        if(AnchorPoint.value > 0)
+        if (AnchorPoint.value > 0)
         {
             // ** 달리면
             if (Input.GetKey(KeyCode.LeftShift))

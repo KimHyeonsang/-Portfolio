@@ -122,14 +122,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6d58dfa29993274cb793bc7e827cd21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damage: 50
+  Damage: 60
   MaxRange: 60
-  AttackDelay: 2
-  Reroad: 4
+  AttackDelay: 0.15
+  Reroad: 2
   attackDelay: 1
   attackDelayA: 0.5
   attackDelayB: 0.1
-  anim: {fileID: 0}
+  FireTransform: {fileID: 0}
+  MaxBullet: 400
+  Magazine: 40
+  CurrentMagazine: 0
+  Anim: {fileID: 0}
 --- !u!114 &-2716861747532312892
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -142,3 +146,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f76b0f7e7f7afac4bb58debe7617538b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentWeapon: {fileID: 0}

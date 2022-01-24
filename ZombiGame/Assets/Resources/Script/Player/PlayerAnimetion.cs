@@ -8,6 +8,7 @@ public class PlayerAnimetion : MonoBehaviour
 
     private bool JumpCheck;
     private bool Runing;
+    private bool Reroad;
     private void Awake()
     {
         Anim = GetComponent<Animator>();
@@ -16,6 +17,7 @@ public class PlayerAnimetion : MonoBehaviour
     {
         JumpCheck = false;
         Runing = false;
+        Reroad = false;
     }
 
     void Update()
@@ -57,6 +59,14 @@ public class PlayerAnimetion : MonoBehaviour
             JumpCheck = true;
         }
 
+        // ** ¸®·Îµå
+        if (Input.GetKey(KeyCode.R))
+        {
+            Reroad = true;
+        }
+        else
+            Reroad = false;
+
         if (Input.GetKey(KeyCode.LeftShift))
         {
             Runing = true;
@@ -65,6 +75,7 @@ public class PlayerAnimetion : MonoBehaviour
             Runing = false;
 
         Anim.SetBool("Jump", JumpCheck);
+        Anim.SetBool("ReRoad", Reroad);
     }
 
     private void OnCollisionEnter(Collision collision)

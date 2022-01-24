@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FollowCamera : MonoBehaviour
 {
-    private GameObject Target;
+    public GameObject Target;
 
     private float TurnSpeed;
     private Vector3 Offset;

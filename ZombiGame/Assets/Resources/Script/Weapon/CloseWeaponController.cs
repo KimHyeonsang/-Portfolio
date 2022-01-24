@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public abstract class CloseWeaponController : MonoBehaviour
 {
@@ -12,7 +13,8 @@ public abstract class CloseWeaponController : MonoBehaviour
 
     protected RaycastHit hitInfo;  // 현재 무기(Hand)에 닿은 것들의 정보.
 
-
+    protected Text MagazineText;
+    protected Text CurrentMagazine;
     // 공격시도
     protected void TryAttack()
     {
@@ -26,7 +28,6 @@ public abstract class CloseWeaponController : MonoBehaviour
     protected IEnumerator AttackCoroutine()
     {
         isAttack = true;
-        //    currentWeapon.Anim.SetTrigger("Attack");
 
         yield return new WaitForSeconds(currentWeapon.attackDelayA);
         isSwing = true;
@@ -51,4 +52,5 @@ public abstract class CloseWeaponController : MonoBehaviour
         return false;
     }
     protected abstract IEnumerator HitCoroutine();
+    protected abstract IEnumerator GunReroad();
 }
