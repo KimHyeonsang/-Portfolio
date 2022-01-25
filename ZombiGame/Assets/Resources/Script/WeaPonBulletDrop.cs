@@ -17,6 +17,7 @@ public class WeaPonBulletDrop : MonoBehaviour
     [SerializeField] public GameObject WeaponPrefab3;
     [SerializeField] public GameObject WeaponPrefab4;
 
+    private GameObject Obj;
     private void Awake()
     {
         WeaponPrefab1 = Resources.Load("Prefabs/Gun/assault") as GameObject;
@@ -35,52 +36,35 @@ public class WeaPonBulletDrop : MonoBehaviour
         for (int i = 0; i < DropCount; ++i)
         {
             RandomWeaponNumber = Random.Range(1, 5);
-            GameObject Obj;
+            
             switch (RandomWeaponNumber)
             {
                 case 1:
                     Obj = Instantiate(WeaponPrefab1);
-                    Obj.AddComponent<Rigidbody>();
-                    Obj.transform.position = new Vector3(
-                Random.Range(WayPointManager.GetInstance().PointA.x,
-                WayPointManager.GetInstance().PointB.x),
-                -10.0f,
-                Random.Range(WayPointManager.GetInstance().PointA.y,
-                WayPointManager.GetInstance().PointB.y));
+                    Obj.GetComponent<Assault>().enabled = false;
                     break;
                 case 2:
                     Obj = Instantiate(WeaponPrefab2);
-                    Obj.AddComponent<Rigidbody>();
-                    Obj.transform.position = new Vector3(
-                Random.Range(WayPointManager.GetInstance().PointA.x,
-                WayPointManager.GetInstance().PointB.x),
-                -10.0f,
-                Random.Range(WayPointManager.GetInstance().PointA.y,
-                WayPointManager.GetInstance().PointB.y));
+               //     Obj.GetComponent<Assault>().enabled = false;
                     break;
                 case 3:
                     Obj = Instantiate(WeaponPrefab3);
-                    Obj.AddComponent<Rigidbody>();
-                    Obj.transform.position = new Vector3(
-                Random.Range(WayPointManager.GetInstance().PointA.x,
-                WayPointManager.GetInstance().PointB.x),
-                -10.0f,
-                Random.Range(WayPointManager.GetInstance().PointA.y,
-                WayPointManager.GetInstance().PointB.y));
+               //     Obj.GetComponent<Assault>().enabled = false;
                     break;
                 case 4:
                      Obj = Instantiate(WeaponPrefab4);
-                    Obj.AddComponent<Rigidbody>();
-                    Obj.transform.position = new Vector3(
-                Random.Range(WayPointManager.GetInstance().PointA.x,
-                WayPointManager.GetInstance().PointB.x),
-                -10.0f,
-                Random.Range(WayPointManager.GetInstance().PointA.y,
-                WayPointManager.GetInstance().PointB.y));
+               //     Obj.GetComponent<Assault>().enabled = false;
                     break;
             }
-            
+            Obj.AddComponent<Rigidbody>();
+            Obj.transform.position = new Vector3(
+            Random.Range(WayPointManager.GetInstance().PointA.x,
+            WayPointManager.GetInstance().PointB.x),
+            -10.0f,
+            Random.Range(WayPointManager.GetInstance().PointA.y,
+            WayPointManager.GetInstance().PointB.y));
 
+            
         }
     }
 

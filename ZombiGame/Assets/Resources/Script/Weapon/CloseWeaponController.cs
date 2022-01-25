@@ -14,13 +14,15 @@ public abstract class CloseWeaponController : MonoBehaviour
     protected Text MagazineText;
     protected Text CurrentMagazine;
 
+    protected RaycastHit hitInfo;  // 현재 무기(Hand)에 닿은 것들의 정보.
+
+    protected GameObject Effect;
     // 공격시도
     protected void TryAttack()
     {
         currentWeapon = GetComponent<CloseWeapon>();
         if (!isAttack)
         {
-
             StartCoroutine(AttackCoroutine());
         }
     }
@@ -43,7 +45,23 @@ public abstract class CloseWeaponController : MonoBehaviour
     }
 
     // 공격에 맞은 오브젝트가 무엇인지 확인한다.
-   
+    protected bool CheckObject()
+    {
+        if (Physics.Raycast(transform.position, transform.forward, out hitInfo, currentWeapon.MaxRange))
+        {
+            if(hitInfo.transform.tag == "Enumy")
+            {
+                
+            }
+            Effect.SetActive(false);
+            currentWeapon.muzzleFlash.Stop();
+            return true;
+        }
+
+        Effect.SetActive(false);
+        currentWeapon.muzzleFlash.Stop();
+        return false;
+    }
     protected abstract IEnumerator HitCoroutine();
     protected abstract IEnumerator GunReroad();
 }

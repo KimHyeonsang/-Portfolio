@@ -13,8 +13,10 @@ TagManager:
   - NoSpawn
   - Node
   - waist
-  - CreatBullet
   - Enumy
+  - FxTemporaire
+  - Bullet
+  - CreatBullet
   layers:
   - Default
   - TransparentFX

@@ -5,10 +5,7 @@ using UnityEngine.UI;
 
 public class Assault : CloseWeaponController
 {
-    private GameObject Bullet;
-    private GameObject Obj;
-
-
+    
     void Start()
     {
         currentWeapon = GetComponent<CloseWeapon>();
@@ -22,8 +19,8 @@ public class Assault : CloseWeaponController
         MagazineText.text = currentWeapon.MaxBullet.ToString();
         CurrentMagazine.text = currentWeapon.CurrentMagazine.ToString();
 
-        Bullet = Resources.Load("Prefabs/Bullet/Sphere") as GameObject;
-
+        Effect = GameObject.Find("assault").transform.GetChild(0).gameObject;
+        currentWeapon.muzzleFlash = Effect.GetComponent<ParticleSystem>();
     }
 
     void Update()
@@ -39,7 +36,8 @@ public class Assault : CloseWeaponController
                 StartCoroutine(GunReroad());
                 return;
             }
-            
+            Effect.SetActive(true);
+            currentWeapon.muzzleFlash.Play();
             --currentWeapon.CurrentMagazine;            
             TryAttack();
         }
@@ -47,16 +45,19 @@ public class Assault : CloseWeaponController
         MagazineText.text = currentWeapon.MaxBullet.ToString();
         CurrentMagazine.text = currentWeapon.CurrentMagazine.ToString();
     }
+
     protected override IEnumerator HitCoroutine()
     {
         // √—¿ª ΩÓ∏È
         if (isSwing == true)
-        {
-            isSwing = false;
-            Obj = Instantiate(Bullet, transform.position, transform.rotation);
-            Obj.transform.position = GameObject.FindGameObjectsWithTag("CreatBullet")[0].transform.position;
-
-            Obj.GetComponent<NomalBullet>().Range = currentWeapon.MaxRange;
+        {            
+            if (CheckObject())
+            {
+                isSwing = false;
+                // ∏∏æ‡ ∫Œµ˙»˘ tag∞° Enumy¿Ã∏È
+                
+                Debug.Log(hitInfo.transform.name);
+            }
             yield return null;
         }
     }
@@ -64,9 +65,11 @@ public class Assault : CloseWeaponController
     {
         yield return new WaitForSeconds(currentWeapon.Reroad);
 
-        
+        currentWeapon.muzzleFlash.Stop();
+        Effect.SetActive(false);
+
         // √÷¥Î√—æÀ¿Ã 0 ¿ÃªÛ¿œ ∞ÊøÏ
-        if(currentWeapon.MaxBullet > 0)
+        if (currentWeapon.MaxBullet > 0)
         {
             // √÷¥Î √—æÀ¿Ã 0¿œ∞ÊøÏ
             if (currentWeapon.MaxBullet < 0)

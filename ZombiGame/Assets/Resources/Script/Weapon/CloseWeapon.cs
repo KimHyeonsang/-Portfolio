@@ -21,4 +21,7 @@ public class CloseWeapon : MonoBehaviour
 
     public Animator Anim;
 
+    // ÆÄÆ¼Å¬
+    public ParticleSystem muzzleFlash;
+
 }
