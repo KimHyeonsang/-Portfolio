@@ -9,19 +9,30 @@ public class PlayerAnimetion : MonoBehaviour
     private bool JumpCheck;
     private bool Runing;
     private bool Reroad;
+
+    private CloseWeapon currentWeapon;
+    private PlayerContorl PlayerCrl;
     private void Awake()
     {
         Anim = GetComponent<Animator>();
+        PlayerCrl = GetComponent<PlayerContorl>();
+
+        
     }
     void Start()
     {
         JumpCheck = false;
         Runing = false;
         Reroad = false;
+
+        // 플레이어
+   //     currentWeapon = PlayerCrl.CurrentWeapon.transform.GetChild(PlayerCrl.CurrentWeaponNumber).GetComponent<CloseWeapon>();
     }
 
     void Update()
     {
+        // 플레이어가 현재 들고있는 총의 정보를 받아온다
+        currentWeapon = PlayerCrl.CurrentWeapon.transform.GetChild(PlayerCrl.CurrentWeaponNumber).GetComponent<CloseWeapon>();
         // ** 이동
         if (Input.GetKey(KeyCode.A))
         {
@@ -31,7 +42,7 @@ public class PlayerAnimetion : MonoBehaviour
         {
             Anim.SetFloat("SpeedX", 1f, 0.1f, Time.deltaTime);
         }
-        else if(Input.GetKey(KeyCode.W) && Runing)
+        else if (Input.GetKey(KeyCode.W) && Runing)
         {
             Anim.SetFloat("SpeedY", 1f, 0.1f, Time.deltaTime);
         }
@@ -60,7 +71,7 @@ public class PlayerAnimetion : MonoBehaviour
         }
 
         // ** 리로드
-        if (Input.GetKey(KeyCode.R))
+        if (Input.GetKey(KeyCode.R) || currentWeapon.CurrentMagazine == 0)
         {
             Reroad = true;
         }

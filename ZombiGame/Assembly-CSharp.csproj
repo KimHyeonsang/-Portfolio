@@ -59,6 +59,7 @@
     <Compile Include="Assets\Low Poly Guns\Scripts\GunsMenu.cs" />
     <Compile Include="Assets\Resources\Script\Weapon\CloseWeapon.cs" />
     <Compile Include="Assets\Resources\Script\FollowCamera.cs" />
+    <Compile Include="Assets\Resources\Script\FollowWeaponCamera.cs" />
     <Compile Include="Assets\Resources\Script\Zombi\NomalZombiController.cs" />
     <Compile Include="Assets\Resources\Script\Player\PlayerContorl.cs" />
     <Compile Include="Assets\Resources\Script\Zombi\SpeedZombiControllor.cs" />
@@ -80,7 +81,7 @@
     <Compile Include="Assets\Low Poly Guns\Scripts\GunView.cs" />
     <Compile Include="Assets\Resources\Script\Weapon\CloseWeaponController.cs" />
     <Compile Include="Assets\Resources\Script\SpawnPoint\WayPoint.cs" />
-    <Compile Include="Assets\Resources\Script\FollowWeaponCamera.cs" />
+    <Compile Include="Assets\Resources\Script\Bullet\NomalBullet.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

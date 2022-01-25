@@ -5,11 +5,15 @@ using UnityEngine.UI;
 
 public class Assault : CloseWeaponController
 {
+    private GameObject Bullet;
+    private GameObject Obj;
+
+
     void Start()
     {
         currentWeapon = GetComponent<CloseWeapon>();
         // ÇöÀç Åº¾à¼ö´Â  ÃÖ´ëÅºÃ¢¼ö¿¡ ¸ÂÃá´Ù.
-        currentWeapon.CurrentMagazine = currentWeapon.Magazine - 1;
+        currentWeapon.CurrentMagazine = currentWeapon.Magazine;
 
         MagazineText = GameObject.Find("Magazine").GetComponent<Text>();
         CurrentMagazine = GameObject.Find("CurrentMagazine").GetComponent<Text>();
@@ -17,25 +21,42 @@ public class Assault : CloseWeaponController
         // ÃÖ´ë·Î µé°í ÀÖ´Â ÅºÃ¢¼ö
         MagazineText.text = currentWeapon.MaxBullet.ToString();
         CurrentMagazine.text = currentWeapon.CurrentMagazine.ToString();
+
+        Bullet = Resources.Load("Prefabs/Bullet/Sphere") as GameObject;
+
     }
 
     void Update()
-    {
+    {        
         if (Input.GetKey(KeyCode.R))
         {
             StartCoroutine(GunReroad());
         }
-
+        else if(Input.GetMouseButtonDown(0))
+        {
+            if (currentWeapon.CurrentMagazine <= 0)
+            {
+                StartCoroutine(GunReroad());
+                return;
+            }
+            
+            --currentWeapon.CurrentMagazine;            
+            TryAttack();
+        }
+        
         MagazineText.text = currentWeapon.MaxBullet.ToString();
         CurrentMagazine.text = currentWeapon.CurrentMagazine.ToString();
     }
     protected override IEnumerator HitCoroutine()
     {
         // ÃÑÀ» ½î¸é
-        while (isSwing)
+        if (isSwing == true)
         {
-            
             isSwing = false;
+            Obj = Instantiate(Bullet, transform.position, transform.rotation);
+            Obj.transform.position = GameObject.FindGameObjectsWithTag("CreatBullet")[0].transform.position;
+
+            Obj.GetComponent<NomalBullet>().Range = currentWeapon.MaxRange;
             yield return null;
         }
     }
@@ -60,7 +81,5 @@ public class Assault : CloseWeaponController
                 currentWeapon.CurrentMagazine = currentWeapon.Magazine;
             }
         }
-
-
     }
 }

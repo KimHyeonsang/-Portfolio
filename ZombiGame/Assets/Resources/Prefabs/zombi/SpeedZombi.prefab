@@ -1743,7 +1743,7 @@ GameObject:
   - component: {fileID: -1239088862937072961}
   m_Layer: 10
   m_Name: SpeedZombi
-  m_TagString: Untagged
+  m_TagString: Enumy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1867,6 +1867,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf03f6c6f5d03324da89cd659e954b9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentZombi: {fileID: 0}
+  Target: {fileID: 0}
 --- !u!1 &7771763157888524136
 GameObject:
   m_ObjectHideFlags: 0

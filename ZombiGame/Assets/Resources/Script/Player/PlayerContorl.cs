@@ -10,14 +10,14 @@ public class PlayerContorl : MonoBehaviour
     private Rigidbody rid;
 
     private bool bJumping;
-
+    private bool isMoving;
     private GameObject StaminaPoint;
     private Slider AnchorPoint;
     private GameObject ButtonImage;
 
     // ** 현재무기
-    private GameObject CurrentWeapon;
-    private int CurrentWeaponNumber;
+    public GameObject CurrentWeapon;
+    public int CurrentWeaponNumber;
     private int AffterWeaponNumber;
 
     private Image Weapon2DImage;
@@ -25,15 +25,23 @@ public class PlayerContorl : MonoBehaviour
     private void Awake()
     {
         rid = GetComponent<Rigidbody>();
+        // 스테미너 UI찾기
         StaminaPoint = GameObject.Find("Canvas/Stamina");
         AnchorPoint = StaminaPoint.GetComponent<Slider>();
 
+        // G버튼이 보이는 이미지 생성
         ButtonImage = GameObject.Find("Canvas/GButtonImage");
+
+        // 현재 무기의 번호
         CurrentWeaponNumber = 0;
 
+        // 무기에 따른 총 그림 
         GameObject WeaponImge = GameObject.Find("Canvas/BackGroundImage/Image");
         Weapon2DImage = WeaponImge.GetComponent<Image>();
         Weapon2DImage.sprite = Resources.Load("Image/Automatic rifle") as Sprite;
+
+        // ** 현재 무기의 번호알기
+        CurrentWeapon = GameObject.FindGameObjectWithTag("WeaponPoint");
     }
 
     void Start()
@@ -43,16 +51,11 @@ public class PlayerContorl : MonoBehaviour
 
         bJumping = false;
         ButtonImage.SetActive(false);
-
-        // ** 현재 무기의 번호알기
-        CurrentWeapon = GameObject.FindGameObjectWithTag("WeaponPoint");
     }
 
     void Update()
     {
-        rid.isKinematic = false;
-        PlayerMove();
-        
+        PlayerMove();       
 
         // 카메라가 회전을 할때 플레이어도 회전
         transform.localRotation = Camera.main.transform.localRotation;
@@ -120,6 +123,12 @@ public class PlayerContorl : MonoBehaviour
             // ** 이동속도 1.0으로 감소
             MoveSpeed = 1.0f;
         }
+
+     
+     // 미끄럼 방지
+     rid.velocity = new Vector3(0f, rid.velocity.y, 0f);
+            
+        
     }
    
     private void OnCollisionEnter(Collision collision)
@@ -134,8 +143,6 @@ public class PlayerContorl : MonoBehaviour
         {
             ButtonImage.SetActive(true);
         }
-        else
-            rid.isKinematic = true;
     }
 
     private void OnCollisionStay(Collision collision)

@@ -909,7 +909,7 @@ GameObject:
   - component: {fileID: 7571731709875343395}
   m_Layer: 10
   m_Name: TankerZombi
-  m_TagString: Untagged
+  m_TagString: Enumy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

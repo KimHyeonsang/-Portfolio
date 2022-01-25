@@ -122,13 +122,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Damage: 50
-  MaxRange: 40
-  AttackDelay: 2
+  MaxRange: 8
   Reroad: 2
-  attackDelay: 1.5
+  attackDelay: 0.5
   attackDelayA: 0.5
   attackDelayB: 0.1
   MaxBullet: 150
   Magazine: 15
   CurrentMagazine: 0
-  anim: {fileID: 0}
+  Anim: {fileID: 0}

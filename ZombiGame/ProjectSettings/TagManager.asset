@@ -12,6 +12,9 @@ TagManager:
   - WeaponPoint
   - NoSpawn
   - Node
+  - waist
+  - CreatBullet
+  - Enumy
   layers:
   - Default
   - TransparentFX

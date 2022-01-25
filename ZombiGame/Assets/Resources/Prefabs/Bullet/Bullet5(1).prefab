@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4000010060403876}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bullet5_Bone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4000011554039720}
   - component: {fileID: 95000013059623268}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bullet5(1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,7 +92,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4000012958578062}
   - component: {fileID: 137000013429646250}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bullet5
   m_TagString: Untagged
   m_Icon: {fileID: 0}

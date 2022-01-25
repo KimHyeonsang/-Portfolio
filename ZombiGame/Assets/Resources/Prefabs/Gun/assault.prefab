@@ -123,13 +123,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Damage: 60
-  MaxRange: 60
-  AttackDelay: 0.15
+  MaxRange: 15
   Reroad: 2
-  attackDelay: 1
-  attackDelayA: 0.5
-  attackDelayB: 0.1
-  FireTransform: {fileID: 0}
+  attackDelay: 0.1
+  attackDelayA: 0.1
+  attackDelayB: 0
   MaxBullet: 400
   Magazine: 40
   CurrentMagazine: 0
