@@ -61,6 +61,7 @@ public class WayPointManager : MonoBehaviour
 
         TargetPoint = new Vector3(0.0f, 0.0f, 0.0f);
 
+
         for (int i = 0; i < 100; ++i)
         {
             GameObject Obj = Instantiate(WayPointList);
@@ -69,13 +70,6 @@ public class WayPointManager : MonoBehaviour
                 -2.0f,
                 Random.Range(-40, 20));
         }
-
-        
-        // 저장된 좀비 수만큼 저장
-    //    for (int i = 0; i < ZombiObjectManager.GetInstance.GetDisableList.Count; ++i)
-    //    {
-    //        GameObject zombi = ZombiObjectManager.GetInstance.GetDisableList.Pop();
-    //        ZombiObjectManager.GetInstance.GetEnableList.Add(zombi);
-    //    }
     }
+
 }

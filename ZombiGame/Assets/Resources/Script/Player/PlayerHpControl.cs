@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class PlayerHpControl : MonoBehaviour
 {
@@ -28,6 +29,7 @@ public class PlayerHpControl : MonoBehaviour
 
     void Update()
     {
+        
         HpText.text = HurrentPlayerHart.ToString() + " / " + MaxPlayerHart.ToString();
     }
 

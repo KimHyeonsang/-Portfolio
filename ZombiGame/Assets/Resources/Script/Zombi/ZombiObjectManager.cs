@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ZombiObjectManager : MonoBehaviour
+public class ZombiObjectManager 
 {
     private static ZombiObjectManager Instance = null;
 
@@ -42,6 +42,4 @@ public class ZombiObjectManager : MonoBehaviour
             return DisableList;
         }
     }
-
-    
 }

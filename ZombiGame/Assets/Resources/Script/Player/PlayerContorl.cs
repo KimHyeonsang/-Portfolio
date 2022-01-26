@@ -46,8 +46,8 @@ public class PlayerContorl : MonoBehaviour
 
     void Start()
     {
-        MoveSpeed = 2.0f;
-        RunSpeed = 4.0f;
+        MoveSpeed = 1.5f;
+        RunSpeed = 2.0f;
 
         bJumping = false;
         ButtonImage.SetActive(false);
@@ -141,7 +141,7 @@ public class PlayerContorl : MonoBehaviour
         else if(collision.transform.tag == "assault" || collision.transform.tag == "smg"
             || collision.transform.tag == "shotgun" || collision.transform.tag == "sniper")
         {
-            ButtonImage.SetActive(true);
+                ButtonImage.SetActive(true);
         }
     }
 
@@ -175,7 +175,7 @@ public class PlayerContorl : MonoBehaviour
                 CurrentWeapon.transform.GetChild(AffterWeaponNumber).gameObject.SetActive(true);
                 CurrentWeaponNumber = AffterWeaponNumber;
                 Destroy(collision.gameObject);
-                ButtonImage.SetActive(false);
+                    ButtonImage.SetActive(false);
             }
         }
     }
@@ -185,7 +185,7 @@ public class PlayerContorl : MonoBehaviour
         if (collision.transform.tag == "assault" || collision.transform.tag == "smg"
             || collision.transform.tag == "shotgun" || collision.transform.tag == "sniper")
         {
-            ButtonImage.SetActive(false);
+                ButtonImage.SetActive(false);
         }
     }
 }

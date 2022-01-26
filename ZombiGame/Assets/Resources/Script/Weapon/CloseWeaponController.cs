@@ -17,6 +17,7 @@ public abstract class CloseWeaponController : MonoBehaviour
     protected RaycastHit hitInfo;  // 현재 무기(Hand)에 닿은 것들의 정보.
 
     protected GameObject Effect;
+    protected GameObject HitEffect;
     // 공격시도
     protected void TryAttack()
     {
@@ -47,12 +48,22 @@ public abstract class CloseWeaponController : MonoBehaviour
     // 공격에 맞은 오브젝트가 무엇인지 확인한다.
     protected bool CheckObject()
     {
-        if (Physics.Raycast(transform.position, transform.forward, out hitInfo, currentWeapon.MaxRange))
+        if (Physics.Raycast(transform.GetChild(0).transform.position, transform.forward, out hitInfo, currentWeapon.MaxRange))
         {
-            if(hitInfo.transform.tag == "Enumy")
-            {
-                
-            }
+       //     if(hitInfo.transform.name == "zombiegirl")
+       //     {
+       //         
+       //     }
+       //     else if (hitInfo.transform.name == "TankerZombi")
+       //     {
+       //
+       //     }
+       //     else if (hitInfo.transform.name == "SpeedZombi")
+       //     {
+       //
+       //     }
+       //     
+            Debug.DrawLine(transform.position, hitInfo.point, Color.red);
             Effect.SetActive(false);
             currentWeapon.muzzleFlash.Stop();
             return true;

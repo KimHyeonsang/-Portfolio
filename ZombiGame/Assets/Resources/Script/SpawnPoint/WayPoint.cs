@@ -82,17 +82,24 @@ public class WayPoint : MonoBehaviour
             Enemy.transform.name = "TankerZombi";
         }
 
+        // 랜덤 방향
         Enemy.transform.Rotate(new Vector3(
               0,
               Random.Range(-180,
               180),
               0));
+
+        // 위치
         Enemy.transform.position = this.transform.position;
 
+        // 부모GameObject에게 넣기
         Enemy.transform.parent = WayPointManager.GetInstance().ZombiParent.transform;
+
         ZombiObjectManager.GetInstance.GetDisableList.Push(Enemy);
-       
-        
+        GameObject zombi = ZombiObjectManager.GetInstance.GetDisableList.Pop();
+        ZombiObjectManager.GetInstance.GetEnableList.Add(zombi);
+        Debug.Log(ZombiObjectManager.GetInstance.GetEnableList.Count);
+        Debug.Log(ZombiObjectManager.GetInstance.GetDisableList.Count);
     }
 
     IEnumerator SaveWayPoint(GameObject _Obj)

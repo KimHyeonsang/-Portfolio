@@ -19,6 +19,8 @@ public class Assault : CloseWeaponController
         MagazineText.text = currentWeapon.MaxBullet.ToString();
         CurrentMagazine.text = currentWeapon.CurrentMagazine.ToString();
 
+        HitEffect = Resources.Load("Effect/WFX_BImpact Concrete") as GameObject;
+
         Effect = GameObject.Find("assault").transform.GetChild(0).gameObject;
         currentWeapon.muzzleFlash = Effect.GetComponent<ParticleSystem>();
     }
@@ -55,8 +57,8 @@ public class Assault : CloseWeaponController
             {
                 isSwing = false;
                 // ¸¸¾à ºÎµúÈù tag°¡ EnumyÀÌ¸é
-                
-                Debug.Log(hitInfo.transform.name);
+                GameObject clone = Instantiate(HitEffect, hitInfo.point, Quaternion.LookRotation(hitInfo.normal));
+                Destroy(clone, 2f);
             }
             yield return null;
         }
