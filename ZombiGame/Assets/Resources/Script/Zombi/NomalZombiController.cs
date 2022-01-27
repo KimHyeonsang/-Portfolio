@@ -30,20 +30,6 @@ public class NomalZombiController : ZombiControl
         NodeNumber = ZombiNumber * 3;
 
         WayPointTarget = WayPoint.WayPointList[NodeNumber].transform.position;
-
-
-
-        // 몇번째 노드인지 저장
-        //   for (int i = 0; i < WayPoint.WayPointList.Count; ++i)
-        //   {
-        //       Debug.Log(WayPoint.WayPointList[i].transform.position);
-        //   }
-
-        //   Debug.Log(WayPoint.WayPointList.Count);
-
-        //    pointPos[0].transform.position = WayPoint.WayPointList[WayPointManager.GetInstance().NodeNumber].transform.position;
-        //    WayPointManager.GetInstance().TargetPoint = WayPoint.WayPointList[0].transform.GetChild(0).transform.position;
-        //   Debug.Log(WayPointManager.GetInstance().TargetPoint);
     }
 
     private void Update()
@@ -69,7 +55,14 @@ public class NomalZombiController : ZombiControl
            transform.position = Vector3.MoveTowards(transform.position, WayPointTarget, zombi.MoveSpeed * Time.deltaTime);
        
        }
-        
+
+
+        if (zombi.Hp <= 0)
+        {
+            GetComponent<NomalZombiController>().enabled = false;
+            StartCoroutine(Die());
+
+        }
     }
 
     // 공격을 하면

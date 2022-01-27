@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2052960577034875862}
   - component: {fileID: -5051252008713412001}
   - component: {fileID: -7626773109077242798}
+  - component: {fileID: -1270109640211610526}
   m_Layer: 0
   m_Name: shotgun
   m_TagString: shotgun
@@ -123,11 +124,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Damage: 50
   MaxRange: 8
-  Reroad: 2
-  attackDelay: 0.5
+  Reroad: 3
+  attackDelay: 1
   attackDelayA: 0.5
   attackDelayB: 0.1
   MaxBullet: 150
   Magazine: 15
   CurrentMagazine: 0
   Anim: {fileID: 0}
+  muzzleFlash: {fileID: 0}
+--- !u!114 &-1270109640211610526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 32892532979916050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5dafa7797597374fbde80cea2b946c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentWeapon: {fileID: 0}

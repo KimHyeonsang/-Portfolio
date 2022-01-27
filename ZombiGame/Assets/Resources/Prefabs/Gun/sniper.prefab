@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1205700544910554778}
   - component: {fileID: -8451003304966777100}
   - component: {fileID: -7768997821214486838}
+  - component: {fileID: 6753131103933683664}
   m_Layer: 0
   m_Name: sniper
   m_TagString: sniper
@@ -123,11 +124,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Damage: 80
   MaxRange: 20
-  Reroad: 2
-  attackDelay: 1
+  Reroad: 3
+  attackDelay: 1.5
   attackDelayA: 0.5
   attackDelayB: 0.1
   MaxBullet: 120
   Magazine: 12
   CurrentMagazine: 0
   Anim: {fileID: 0}
+  muzzleFlash: {fileID: 0}
+--- !u!114 &6753131103933683664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1357896310676102707}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e9cf909632993243899eed6c00e481a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentWeapon: {fileID: 0}

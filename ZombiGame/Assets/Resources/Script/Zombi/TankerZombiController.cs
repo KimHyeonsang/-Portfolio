@@ -56,6 +56,8 @@ public class TankerZombiController : ZombiControl
     
         }
 
+        if (zombi.Hp <= 0)
+            StartCoroutine(Die());
     }
 
     // 공격을 하면
@@ -63,7 +65,9 @@ public class TankerZombiController : ZombiControl
     {
         while (isSwing)
         {
-            Target.GetComponent<PlayerHpControl>().ZombiDmg(zombi.Dmg);
+            
+             Target.GetComponent<PlayerHpControl>().ZombiDmg(zombi.Dmg);
+            
             isSwing = false;
             yield return null;
         }

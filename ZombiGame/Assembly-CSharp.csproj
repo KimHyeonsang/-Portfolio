@@ -64,6 +64,7 @@
     <Compile Include="Assets\Resources\Script\Weapon\CloseWeapon.cs" />
     <Compile Include="Assets\Resources\Script\FollowCamera.cs" />
     <Compile Include="Assets\Resources\Script\FollowWeaponCamera.cs" />
+    <Compile Include="Assets\Resources\Script\UIManager.cs" />
     <Compile Include="Assets\Resources\Script\Zombi\NomalZombiController.cs" />
     <Compile Include="Assets\Resources\Script\Player\PlayerContorl.cs" />
     <Compile Include="Assets\Resources\Script\Zombi\SpeedZombiControllor.cs" />
@@ -77,7 +78,6 @@
     <Compile Include="Assets\Resources\Script\Zombi\Zombi.cs" />
     <Compile Include="Assets\JMO Assets\WarFX\Demo\Assets\CFX_AutoStopLoopedEffect.cs" />
     <Compile Include="Assets\Resources\Script\Zombi\Zombiview.cs" />
-    <Compile Include="Assets\Resources\Script\Zombi\ZombiSpawn.cs" />
     <Compile Include="Assets\Resources\Script\SpawnPoint\SpawnPointBase.cs" />
     <Compile Include="Assets\JMO Assets\WarFX\Scripts\WFX_BulletHoleDecal.cs" />
     <Compile Include="Assets\Resources\Script\Zombi\TankerZombiController.cs" />
@@ -96,7 +96,9 @@
     <Compile Include="Assets\JMO Assets\WarFX\Demo\Assets\WFX_Demo_New.cs" />
     <Compile Include="Assets\Resources\Script\Weapon\CloseWeaponController.cs" />
     <Compile Include="Assets\Resources\Script\SpawnPoint\WayPoint.cs" />
-    <Compile Include="Assets\Resources\Script\UIManager.cs" />
+    <Compile Include="Assets\Resources\Script\Weapon\Shotgun.cs" />
+    <Compile Include="Assets\Resources\Script\Weapon\Smg.cs" />
+    <Compile Include="Assets\Resources\Script\Weapon\sniper.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\JMO Assets\WarFX\Shaders\WFX_S Multiply Soft.shader" />

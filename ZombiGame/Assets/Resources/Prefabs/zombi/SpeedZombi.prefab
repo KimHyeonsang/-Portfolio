@@ -1833,6 +1833,7 @@ MonoBehaviour:
   attackDelayA: 0.5
   attackDelayB: 0.3
   Range: 1.4
+  DieDelay: 3
   Anim: {fileID: 0}
 --- !u!114 &7655755432423843934
 MonoBehaviour:

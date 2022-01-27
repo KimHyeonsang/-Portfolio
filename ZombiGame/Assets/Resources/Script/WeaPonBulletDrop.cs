@@ -45,15 +45,15 @@ public class WeaPonBulletDrop : MonoBehaviour
                     break;
                 case 2:
                     Obj = Instantiate(WeaponPrefab2);
-               //     Obj.GetComponent<Assault>().enabled = false;
+                    Obj.GetComponent<Shotgun>().enabled = false;
                     break;
                 case 3:
                     Obj = Instantiate(WeaponPrefab3);
-               //     Obj.GetComponent<Assault>().enabled = false;
+                    Obj.GetComponent<Smg>().enabled = false;
                     break;
                 case 4:
                      Obj = Instantiate(WeaponPrefab4);
-               //     Obj.GetComponent<Assault>().enabled = false;
+                    Obj.GetComponent<sniper>().enabled = false;
                     break;
             }
             Obj.AddComponent<Rigidbody>();

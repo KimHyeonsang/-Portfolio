@@ -50,19 +50,30 @@ public abstract class CloseWeaponController : MonoBehaviour
     {
         if (Physics.Raycast(transform.GetChild(0).transform.position, transform.forward, out hitInfo, currentWeapon.MaxRange))
         {
-       //     if(hitInfo.transform.name == "zombiegirl")
-       //     {
-       //         
-       //     }
-       //     else if (hitInfo.transform.name == "TankerZombi")
-       //     {
-       //
-       //     }
-       //     else if (hitInfo.transform.name == "SpeedZombi")
-       //     {
-       //
-       //     }
-       //     
+            if (hitInfo.transform.name == "NomalZombi")
+            {
+                if (hitInfo.transform.GetComponent<Zombi>().Hp > 0)
+                {
+                    hitInfo.transform.GetComponent<Zombi>().Hp -= currentWeapon.Damage;
+
+                }
+            }
+            else if (hitInfo.transform.name == "TankerZombi")
+            {
+                if (hitInfo.transform.GetComponent<Zombi>().Hp > 0)
+                {
+                    hitInfo.transform.GetComponent<Zombi>().Hp -= currentWeapon.Damage;
+
+                }
+            }
+            else if (hitInfo.transform.name == "SpeedZombi")
+            {
+                if (hitInfo.transform.GetComponent<Zombi>().Hp > 0)
+                {
+                    hitInfo.transform.GetComponent<Zombi>().Hp -= currentWeapon.Damage;
+                }
+            }
+
             Debug.DrawLine(transform.position, hitInfo.point, Color.red);
             Effect.SetActive(false);
             currentWeapon.muzzleFlash.Stop();

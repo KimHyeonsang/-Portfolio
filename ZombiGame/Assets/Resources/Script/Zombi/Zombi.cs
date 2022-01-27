@@ -23,6 +23,7 @@ public class Zombi : MonoBehaviour
     //공격범위 (어느 위치에  도달하면 공격
     public float Range;
 
+    public float DieDelay;
     // 좀비들 애니메이션
     public Animator Anim;
 

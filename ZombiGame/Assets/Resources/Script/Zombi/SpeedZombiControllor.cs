@@ -56,6 +56,8 @@ public class SpeedZombiControllor : ZombiControl
 
         }
 
+        if (zombi.Hp <= 0)
+            StartCoroutine(Die());
     }
 
     // 공격을 하면

@@ -44,11 +44,17 @@ public abstract class ZombiControl : MonoBehaviour
        
 
     }
-    protected void Die()
+    protected IEnumerator Die()
     {
         currentZombi = GetComponent<Zombi>();
        
         currentZombi.Anim.SetBool("Die", true);
+
+        yield return new WaitForSeconds(currentZombi.DieDelay);
+
+        ZombiObjectManager.GetInstance.GetEnableList.Remove(this.gameObject);
+        this.gameObject.SetActive(false);
+        ZombiObjectManager.GetInstance.GetDisableList.Push(this.gameObject);
      }
     protected IEnumerator AttackCoroutine()
     {

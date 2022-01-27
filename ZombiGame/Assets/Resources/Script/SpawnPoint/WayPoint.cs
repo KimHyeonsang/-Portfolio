@@ -62,44 +62,51 @@ public class WayPoint : MonoBehaviour
     IEnumerator CreateEnemy()
     {
         yield return new WaitForSeconds(fMonsterTime);
-        
-        if (NomalZombiCount < ZombiObjectManager.GetInstance.MaxNomalZombi)
+
+        if (ZombiObjectManager.GetInstance.GetDisableList.Count == 0)
         {
-            ++NomalZombiCount;
-            Enemy = Instantiate(WayPointManager.GetInstance().NomalZombiPrefab);
-            Enemy.transform.name = "NomalZombi";
+            if (NomalZombiCount < ZombiObjectManager.GetInstance.MaxNomalZombi)
+            {
+                ++NomalZombiCount;
+                Enemy = Instantiate(WayPointManager.GetInstance().NomalZombiPrefab);
+                Enemy.transform.name = "NomalZombi";
+            }
+            else if (SpeedZombiCount < ZombiObjectManager.GetInstance.MaxSpeedZombi)
+            {
+                ++SpeedZombiCount;
+                Enemy = Instantiate(WayPointManager.GetInstance().SpeedZombiPrefab);
+                Enemy.transform.name = "SpeedZombi";
+            }
+            else if (TankerZombiCount < ZombiObjectManager.GetInstance.MaxTankerZombi)
+            {
+                ++TankerZombiCount;
+                Enemy = Instantiate(WayPointManager.GetInstance().TankerZombiPrefab);
+                Enemy.transform.name = "TankerZombi";
+            }
+
+            // 랜덤 방향
+            Enemy.transform.Rotate(new Vector3(
+                  0,
+                  Random.Range(-180,
+                  180),
+                  0));
+
+            // 위치
+            Enemy.transform.position = this.transform.position;
+
+            // 부모GameObject에게 넣기
+            Enemy.transform.parent = WayPointManager.GetInstance().ZombiParent.transform;
+
+            // 저장
+            ZombiObjectManager.GetInstance.GetDisableList.Push(Enemy);
         }
-        else if(SpeedZombiCount < ZombiObjectManager.GetInstance.MaxSpeedZombi)
-        {
-            ++SpeedZombiCount;
-            Enemy = Instantiate(WayPointManager.GetInstance().SpeedZombiPrefab);
-            Enemy.transform.name = "SpeedZombi";
-        }
-        else if (TankerZombiCount < ZombiObjectManager.GetInstance.MaxTankerZombi)
-        {
-            ++TankerZombiCount;
-            Enemy = Instantiate(WayPointManager.GetInstance().TankerZombiPrefab);
-            Enemy.transform.name = "TankerZombi";
-        }
 
-        // 랜덤 방향
-        Enemy.transform.Rotate(new Vector3(
-              0,
-              Random.Range(-180,
-              180),
-              0));
-
-        // 위치
-        Enemy.transform.position = this.transform.position;
-
-        // 부모GameObject에게 넣기
-        Enemy.transform.parent = WayPointManager.GetInstance().ZombiParent.transform;
-
-        ZombiObjectManager.GetInstance.GetDisableList.Push(Enemy);
+        //저장한것을 부르고 삭제
         GameObject zombi = ZombiObjectManager.GetInstance.GetDisableList.Pop();
+        // 위치 저장
+        zombi.transform.position = Enemy.transform.position;
+        // 리스트로 저장
         ZombiObjectManager.GetInstance.GetEnableList.Add(zombi);
-        Debug.Log(ZombiObjectManager.GetInstance.GetEnableList.Count);
-        Debug.Log(ZombiObjectManager.GetInstance.GetDisableList.Count);
     }
 
     IEnumerator SaveWayPoint(GameObject _Obj)

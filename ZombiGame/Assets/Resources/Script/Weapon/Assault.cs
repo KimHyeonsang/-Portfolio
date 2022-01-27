@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 public class Assault : CloseWeaponController
 {
-    
+    //false는 평시 true는 장전중
+    private bool check;
     void Start()
     {
         currentWeapon = GetComponent<CloseWeapon>();
@@ -23,6 +24,8 @@ public class Assault : CloseWeaponController
 
         Effect = GameObject.Find("assault").transform.GetChild(0).gameObject;
         currentWeapon.muzzleFlash = Effect.GetComponent<ParticleSystem>();
+
+        check = false;
     }
 
     void Update()
@@ -31,16 +34,15 @@ public class Assault : CloseWeaponController
         {
             StartCoroutine(GunReroad());
         }
-        else if(Input.GetMouseButtonDown(0))
+
+        if(Input.GetMouseButtonDown(0) && check == false)
         {
             if (currentWeapon.CurrentMagazine <= 0)
             {
                 StartCoroutine(GunReroad());
                 return;
             }
-            Effect.SetActive(true);
-            currentWeapon.muzzleFlash.Play();
-            --currentWeapon.CurrentMagazine;            
+            
             TryAttack();
         }
         
@@ -58,17 +60,22 @@ public class Assault : CloseWeaponController
                 isSwing = false;
                 // 만약 부딪힌 tag가 Enumy이면
                 GameObject clone = Instantiate(HitEffect, hitInfo.point, Quaternion.LookRotation(hitInfo.normal));
-                Destroy(clone, 2f);
+                Destroy(clone, 0.5f);
             }
+            Effect.SetActive(true);
+            currentWeapon.muzzleFlash.Play();
+            --currentWeapon.CurrentMagazine;
+
             yield return null;
         }
     }
     protected override IEnumerator GunReroad()
     {
-        yield return new WaitForSeconds(currentWeapon.Reroad);
+        check = true;
 
-        currentWeapon.muzzleFlash.Stop();
         Effect.SetActive(false);
+
+        yield return new WaitForSeconds(currentWeapon.Reroad);
 
         // 최대총알이 0 이상일 경우
         if (currentWeapon.MaxBullet > 0)
@@ -86,5 +93,7 @@ public class Assault : CloseWeaponController
                 currentWeapon.CurrentMagazine = currentWeapon.Magazine;
             }
         }
+
+        check = false;
     }
 }

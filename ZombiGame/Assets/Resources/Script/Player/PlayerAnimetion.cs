@@ -10,23 +10,20 @@ public class PlayerAnimetion : MonoBehaviour
     private bool Runing;
     private bool Reroad;
 
+
+
     private CloseWeapon currentWeapon;
     private PlayerContorl PlayerCrl;
     private void Awake()
     {
         Anim = GetComponent<Animator>();
         PlayerCrl = GetComponent<PlayerContorl>();
-
-        
     }
     void Start()
     {
         JumpCheck = false;
         Runing = false;
         Reroad = false;
-
-        // 플레이어
-   //     currentWeapon = PlayerCrl.CurrentWeapon.transform.GetChild(PlayerCrl.CurrentWeaponNumber).GetComponent<CloseWeapon>();
     }
 
     void Update()
@@ -73,10 +70,8 @@ public class PlayerAnimetion : MonoBehaviour
         // ** 리로드
         if (Input.GetKey(KeyCode.R) || currentWeapon.CurrentMagazine == 0)
         {
-            Reroad = true;
+            StartCoroutine(GunReroad());
         }
-        else
-            Reroad = false;
 
         if (Input.GetKey(KeyCode.LeftShift))
         {
@@ -85,10 +80,44 @@ public class PlayerAnimetion : MonoBehaviour
         else
             Runing = false;
 
+        if (Input.GetMouseButtonDown(0)&& Reroad == false)
+        {
+            if(currentWeapon.CurrentMagazine > 0)
+                PlayerShoot();
+        }
+
+
+
+
+
         Anim.SetBool("Jump", JumpCheck);
         Anim.SetBool("ReRoad", Reroad);
+        Anim.SetBool("Dmg", false);
     }
 
+    public void PlayerDie()
+    {
+        Anim.SetBool("Dying", true);
+    }
+
+    public void PlayerHit()
+    {
+        Anim.SetTrigger("Dmg");
+    }
+
+    public void PlayerShoot()
+    {
+        Anim.SetTrigger("Shoot");
+    }
+
+    private IEnumerator GunReroad()
+    {
+        Reroad = true;
+
+        yield return new WaitForSeconds(3.0f);
+
+        Reroad = false;
+    }
     private void OnCollisionEnter(Collision collision)
     {
        if (collision.transform.tag == "Ground")

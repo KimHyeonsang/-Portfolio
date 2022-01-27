@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: -2918343986867528606}
   - component: {fileID: 4352865010174529590}
   - component: {fileID: -5732042849680937435}
+  - component: {fileID: 3799441071753053672}
   m_Layer: 0
   m_Name: smg
   m_TagString: smg
@@ -123,7 +124,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Damage: 40
   MaxRange: 10
-  Reroad: 2
+  Reroad: 3
   attackDelay: 0.1
   attackDelayA: 0.5
   attackDelayB: 0.1
@@ -131,3 +132,16 @@ MonoBehaviour:
   Magazine: 60
   CurrentMagazine: 0
   Anim: {fileID: 0}
+  muzzleFlash: {fileID: 0}
+--- !u!114 &3799441071753053672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4738368601081367488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b6f3f11879f5254fade960b96b0a492, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

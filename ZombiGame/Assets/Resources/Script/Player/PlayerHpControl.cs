@@ -12,7 +12,7 @@ public class PlayerHpControl : MonoBehaviour
     private Text HpText;
     private GameObject HpObj;
     private float MaxPlayerHart = 100;
-    private float HurrentPlayerHart = 100;
+    public float HurrentPlayerHart = 100;
     private void Awake()
     {
         HpPoint = GameObject.Find("Canvas/PlayerHp");
@@ -35,7 +35,17 @@ public class PlayerHpControl : MonoBehaviour
 
     public void ZombiDmg(int _Dmg)
     {
-          AnchorPoint.value -= _Dmg;
-          HurrentPlayerHart = AnchorPoint.value;
+        if(HurrentPlayerHart > 0)
+        {
+            AnchorPoint.value -= _Dmg;
+            HurrentPlayerHart = AnchorPoint.value;
+            GetComponent<PlayerAnimetion>().PlayerHit();
+        }
+        else
+        {
+            GetComponent<PlayerAnimetion>().PlayerDie();
+        }
+        
+         
     }
 }

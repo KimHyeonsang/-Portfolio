@@ -124,14 +124,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Damage: 60
   MaxRange: 15
-  Reroad: 2
-  attackDelay: 0.1
+  Reroad: 3
+  attackDelay: 0.5
   attackDelayA: 0.1
   attackDelayB: 0
   MaxBullet: 400
   Magazine: 40
   CurrentMagazine: 0
   Anim: {fileID: 0}
+  muzzleFlash: {fileID: 0}
 --- !u!114 &-2716861747532312892
 MonoBehaviour:
   m_ObjectHideFlags: 0
