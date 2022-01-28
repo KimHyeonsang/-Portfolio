@@ -65,6 +65,7 @@ public class sniper : CloseWeaponController
             Effect.SetActive(true);
             currentWeapon.muzzleFlash.Play();
             --currentWeapon.CurrentMagazine;
+
             yield return null;
         }
     }

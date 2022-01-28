@@ -11,6 +11,7 @@ public class NomalZombiController : ZombiControl
 
     private Vector3 WayPointTarget;
     private int NodeNumber;
+    private int WayPointNumber;
     public static bool isActivate = true;
     public static bool isMoveActivate = false;
 
@@ -29,7 +30,13 @@ public class NomalZombiController : ZombiControl
         WayPointManager.GetInstance().NodeNumber += 1;
         NodeNumber = ZombiNumber * 3;
 
-        WayPointTarget = WayPoint.WayPointList[NodeNumber].transform.position;
+     //   Debug.Log(WayPoint.WayPointList[NodeNumber].transform.position);
+     //   Debug.Log(WayPoint.WayPointList[NodeNumber + 1].transform.position);
+     //   Debug.Log(WayPoint.WayPointList[NodeNumber + 2].transform.position);
+           
+        
+         WayPointTarget = WayPoint.WayPointList[NodeNumber].transform.position;
+
     }
 
     private void Update()
@@ -53,6 +60,16 @@ public class NomalZombiController : ZombiControl
            TryMove();
            transform.LookAt(WayPointTarget);
            transform.position = Vector3.MoveTowards(transform.position, WayPointTarget, zombi.MoveSpeed * Time.deltaTime);
+
+           if(Vector3.Distance(WayPointTarget, transform.position)== 0.0f)
+           {
+               ++NodeNumber;
+       
+               if (NodeNumber > ((ZombiNumber + 1) * 3) - 1)
+               {
+                   NodeNumber = ZombiNumber * 3;
+               }
+           }
        
        }
 
@@ -77,24 +94,37 @@ public class NomalZombiController : ZombiControl
     }
 
 
-   private void OnCollisionEnter(Collision collision)
-   {
-        if(WayPointTarget == collision.transform.position)
-        {
-            ++NodeNumber;
+ private void OnCollisionEnter(Collision collision)
+ {
+      if(WayPointTarget == collision.transform.position)
+      {
+          ++NodeNumber;
 
-            if (NodeNumber > ((ZombiNumber + 1) * 3) - 1)
-            {
-                NodeNumber = 0;
-            }
-            WayPointTarget = WayPoint.WayPointList[NodeNumber].transform.position;
-        }
+          if (NodeNumber > ((ZombiNumber + 1) * 3) - 1)
+          {
+              NodeNumber = ZombiNumber * 3;
+          }
+          WayPointTarget = WayPoint.WayPointList[NodeNumber].transform.position;
+      }
 
-     //   if(collision.transform.tag == "Ground")
-     //   {
-     //       this.transform.localEulerAngles = new Vector3(0, this.transform.rotation.y, 0);
-     //   }
+   //   if(collision.transform.tag == "Ground")
+   //   {
+   //       this.transform.localEulerAngles = new Vector3(0, this.transform.rotation.y, 0);
+   //   }
 
-   }
- 
+ }
+ //
+ //  private void OnTriggerEnter(Collider other)
+ //  {
+ //      if (WayPointTarget == other.transform.position)
+ //      {
+ //          ++NodeNumber;
+ //
+ //          if (NodeNumber > ((ZombiNumber + 1) * 3) - 1)
+ //          {
+ //              NodeNumber = ZombiNumber * 3;
+ //          }
+ //          WayPointTarget = WayPoint.WayPointList[NodeNumber].transform.position;
+ //      }
+ //  }
 }

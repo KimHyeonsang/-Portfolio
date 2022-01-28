@@ -19,23 +19,45 @@ public class UIManager : MonoBehaviour
     }
 
     public Image CrossHair;
-    public GameObject GButton;
+    public GameObject PlayerUi;
+    public GameObject GameOverUi;
 
+    private GameObject Player;
     private void Start()
     {
-     //   StartCoroutine("Save");
+        Player = GameObject.FindWithTag("Player");
+        
     }
+    private void Update()
+    {
+        if (Player.GetComponent<PlayerHpControl>().HurrentPlayerHart <= 0)
+        {
+            StartCoroutine(PlayerDie());
+        }
+    }
+
+
+    private IEnumerator PlayerDie()
+    {
+        yield return new WaitForSeconds(5.0f);
+
+        PlayerUi.SetActive(false);
+        GameOverUi.SetActive(true);
+        Time.timeScale = 0;
+
+
+    }
+
+
 
     IEnumerator Save()
     {
         yield return new WaitForSeconds(10.0f);
-        Debug.Log(ZombiObjectManager.GetInstance.GetDisableList.Count);
         for (int i = 0; i < ZombiObjectManager.GetInstance.GetDisableList.Count; ++i)
         {
             GameObject zombi = ZombiObjectManager.GetInstance.GetDisableList.Pop();
             ZombiObjectManager.GetInstance.GetEnableList.Add(zombi);
             Debug.Log(ZombiObjectManager.GetInstance.GetEnableList.Count);
-
         }
     }
 }

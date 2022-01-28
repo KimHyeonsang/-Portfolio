@@ -28,8 +28,7 @@ public class PlayerHpControl : MonoBehaviour
     }
 
     void Update()
-    {
-        
+    {        
         HpText.text = HurrentPlayerHart.ToString() + " / " + MaxPlayerHart.ToString();
     }
 

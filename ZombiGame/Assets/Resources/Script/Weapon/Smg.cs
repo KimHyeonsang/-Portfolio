@@ -24,6 +24,8 @@ public class Smg : CloseWeaponController
 
         // ** smg쪽 이펙트 
         Effect = GameObject.Find("smg").transform.GetChild(0).gameObject;
+
+        Debug.Log(Effect.transform.name);
         currentWeapon.muzzleFlash = Effect.GetComponent<ParticleSystem>();
 
         // ** 장전 중인지 아닌지 판별
@@ -66,6 +68,7 @@ public class Smg : CloseWeaponController
             Effect.SetActive(true);
             currentWeapon.muzzleFlash.Play();
             --currentWeapon.CurrentMagazine;
+
             yield return null;
         }
     }

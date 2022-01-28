@@ -82,7 +82,7 @@ public class TankerZombiController : ZombiControl
 
             if (NodeNumber > ((ZombiNumber + 1) * 3) - 1)
             {
-                NodeNumber = 0;
+                NodeNumber = ZombiNumber * 3;
             }
             WayPointTarget = WayPoint.WayPointList[NodeNumber].transform.position;
         }

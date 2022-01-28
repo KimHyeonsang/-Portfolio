@@ -123,7 +123,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Damage: 60
-  MaxRange: 15
+  MaxRange: 30
   Reroad: 3
   attackDelay: 0.5
   attackDelayA: 0.1

@@ -64,6 +64,7 @@ public class Shotgun : CloseWeaponController
             Effect.SetActive(true);
             currentWeapon.muzzleFlash.Play();
             --currentWeapon.CurrentMagazine;
+
             yield return null;
         }
     }

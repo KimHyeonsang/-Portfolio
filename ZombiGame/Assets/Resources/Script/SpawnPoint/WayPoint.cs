@@ -92,7 +92,7 @@ public class WayPoint : MonoBehaviour
                   0));
 
             // 위치
-            Enemy.transform.position = this.transform.position;
+            Enemy.transform.position = this.transform.GetChild(0).transform.position;
 
             // 부모GameObject에게 넣기
             Enemy.transform.parent = WayPointManager.GetInstance().ZombiParent.transform;

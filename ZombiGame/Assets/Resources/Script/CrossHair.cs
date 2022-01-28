@@ -8,7 +8,7 @@ public class CrossHair : MonoBehaviour
     
     void Start()
     {
-        transform.position = new Vector3(Camera.main.pixelWidth / 2, (Camera.main.pixelHeight / 2));
+        transform.position = new Vector3(Camera.main.pixelWidth / 2, (Camera.main.pixelHeight / 2.2f));
     }
 
     void Update()

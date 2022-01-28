@@ -75,6 +75,7 @@ public abstract class CloseWeaponController : MonoBehaviour
             }
 
             Debug.DrawLine(transform.position, hitInfo.point, Color.red);
+
             Effect.SetActive(false);
             currentWeapon.muzzleFlash.Stop();
             return true;
