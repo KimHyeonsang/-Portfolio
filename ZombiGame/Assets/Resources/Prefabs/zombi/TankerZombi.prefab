@@ -905,9 +905,9 @@ GameObject:
   - component: {fileID: 2503746854163829033}
   - component: {fileID: 2503746854163829039}
   - component: {fileID: 2503746854163829036}
-  - component: {fileID: 5472194660300831571}
   - component: {fileID: 7571731709875343395}
   - component: {fileID: 7839152670316125297}
+  - component: {fileID: -507508923994179791}
   m_Layer: 10
   m_Name: TankerZombi
   m_TagString: Enumy
@@ -966,10 +966,12 @@ MonoBehaviour:
   Dmg: 10
   AttackSpeed: 0
   MoveSpeed: 1.5
+  MoveDelay: 2
   attackDelay: 2
   attackDelayA: 0.5
   attackDelayB: 0.1
   Range: 2
+  TargetRange: 20
   DieDelay: 3
   Anim: {fileID: 0}
 --- !u!114 &2503746854163829039
@@ -1007,20 +1009,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentZombi: {fileID: 0}
   Target: {fileID: 0}
---- !u!136 &5472194660300831571
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3350240166744573162}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.4
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 1, z: 0}
 --- !u!54 &7571731709875343395
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1035,7 +1023,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 0
   m_CollisionDetection: 0
 --- !u!82 &7839152670316125297
 AudioSource:
@@ -1133,6 +1121,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!65 &-507508923994179791
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3350240166744573162}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.5, y: 2, z: 0.5}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1 &3420887344690503611
 GameObject:
   m_ObjectHideFlags: 0

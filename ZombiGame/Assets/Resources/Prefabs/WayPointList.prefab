@@ -48,6 +48,7 @@ MonoBehaviour:
   WayPointPrefab: {fileID: 0}
   WayPointCount: 3
   Diretion: {x: 0, y: 0, z: 0}
+  Enemy: {fileID: 0}
 --- !u!114 &-2721312750102200466
 MonoBehaviour:
   m_ObjectHideFlags: 0

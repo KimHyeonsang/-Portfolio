@@ -17,6 +17,8 @@ public class SpawnPointBase : MonoBehaviour
         }
         else
         {
+            Destroy(this.gameObject.GetComponent<Rigidbody>());
+            Destroy(this.gameObject.GetComponent<BoxCollider>());
             this.GetComponent<Rigidbody>().useGravity = false;
             this.GetComponent<Rigidbody>().isKinematic = true;
         }

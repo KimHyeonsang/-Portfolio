@@ -293,11 +293,11 @@ GameObject:
   - component: {fileID: 450927830003364503}
   - component: {fileID: 1652810664722602336}
   - component: {fileID: 5865795528074609818}
-  - component: {fileID: 4522937051851006569}
   - component: {fileID: 6742209782767501118}
   - component: {fileID: -2090017610402877768}
   - component: {fileID: 6920634554415252506}
   - component: {fileID: 8210857785094669649}
+  - component: {fileID: 5706483088838947546}
   m_Layer: 10
   m_Name: zombiegirl
   m_TagString: Enumy
@@ -358,20 +358,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!136 &4522937051851006569
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 939516006362015789}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.3
-  m_Height: 1.9
-  m_Direction: 1
-  m_Center: {x: 0, y: 1, z: 0}
 --- !u!114 &6742209782767501118
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -409,10 +395,12 @@ MonoBehaviour:
   Dmg: 3
   AttackSpeed: 0
   MoveSpeed: 0.3
+  MoveDelay: 3
   attackDelay: 2.1
   attackDelayA: 0.5
   attackDelayB: 0.1
   Range: 1.4
+  TargetRange: 15
   DieDelay: 3
   Anim: {fileID: 0}
 --- !u!114 &6920634554415252506
@@ -525,6 +513,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!65 &5706483088838947546
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 939516006362015789}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.5, y: 2, z: 0.5}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1 &1067467717442372830
 GameObject:
   m_ObjectHideFlags: 0

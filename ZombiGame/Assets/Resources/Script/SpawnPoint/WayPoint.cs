@@ -32,29 +32,27 @@ public class WayPoint : MonoBehaviour
         WayPointManager.GetInstance().WayPointA = new Vector2(transform.position.x - Radius.x, transform.position.z + Radius.y);
         WayPointManager.GetInstance().WayPointB = new Vector2(transform.position.x + Radius.x, transform.position.z - Radius.y);
 
-        for(int i = 0;i < WayPointCount;++i)
-        {
-            GameObject Obj = Instantiate(WayPointPrefab);
-            Obj.transform.name = i.ToString();
-            Obj.AddComponent<Rigidbody>();
-            Obj.AddComponent<BoxCollider>();
-
-            
+       for(int i = 0;i < WayPointCount;++i)
+       {
+           GameObject Obj = Instantiate(WayPointPrefab);
+           Obj.transform.name = i.ToString();
+           Obj.AddComponent<Rigidbody>();
+           Obj.AddComponent<BoxCollider>();
+    
+           Obj.GetComponent<Rigidbody>().freezeRotation = true;
+           Obj.transform.parent = transform;
+    
+           Obj.transform.position = new Vector3(
+               Random.Range(WayPointManager.GetInstance().WayPointA.x,
+               WayPointManager.GetInstance().WayPointB.x),
+               -3.0f,
+               Random.Range(WayPointManager.GetInstance().WayPointA.y,
+               WayPointManager.GetInstance().WayPointB.y));
+    
+           myCoroutine = SaveWayPoint(Obj);
+           StartCoroutine(myCoroutine);
            
-            Obj.GetComponent<Rigidbody>().freezeRotation = true;
-            Obj.transform.parent = transform;
-
-            Obj.transform.position = new Vector3(
-                Random.Range(WayPointManager.GetInstance().WayPointA.x,
-                WayPointManager.GetInstance().WayPointB.x),
-                -5.0f,
-                Random.Range(WayPointManager.GetInstance().WayPointA.y,
-                WayPointManager.GetInstance().WayPointB.y));
-
-            myCoroutine = SaveWayPoint(Obj);
-            StartCoroutine(myCoroutine);
-            
-        }
+       }
         // 몬스터 소환
         StartCoroutine("CreateEnemy");
     }

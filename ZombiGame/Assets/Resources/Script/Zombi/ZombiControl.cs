@@ -84,6 +84,7 @@ public abstract class ZombiControl : MonoBehaviour
 
         return false;
     }
+
     protected abstract IEnumerator HitCoroutine();
 
   

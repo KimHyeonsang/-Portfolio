@@ -1737,11 +1737,11 @@ GameObject:
   - component: {fileID: 7031832619096465027}
   - component: {fileID: 7270320378267298087}
   - component: {fileID: 7352168368050193364}
-  - component: {fileID: 3223295249725463442}
   - component: {fileID: 687213680743250869}
   - component: {fileID: 7655755432423843934}
   - component: {fileID: -1239088862937072961}
   - component: {fileID: 3152258658055233366}
+  - component: {fileID: 6883302680182976909}
   m_Layer: 10
   m_Name: SpeedZombi
   m_TagString: Enumy
@@ -1798,22 +1798,8 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 0
   m_CollisionDetection: 0
---- !u!136 &3223295249725463442
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7700528840347452473}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.3
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 1, z: 0}
 --- !u!114 &687213680743250869
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1830,10 +1816,12 @@ MonoBehaviour:
   Dmg: 5
   AttackSpeed: 0
   MoveSpeed: 2
+  MoveDelay: 1
   attackDelay: 1
   attackDelayA: 0.5
   attackDelayB: 0.3
   Range: 1.4
+  TargetRange: 18
   DieDelay: 3
   Anim: {fileID: 0}
 --- !u!114 &7655755432423843934
@@ -1967,6 +1955,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!65 &6883302680182976909
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7700528840347452473}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.5, y: 2, z: 0.5}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1 &7771763157888524136
 GameObject:
   m_ObjectHideFlags: 0

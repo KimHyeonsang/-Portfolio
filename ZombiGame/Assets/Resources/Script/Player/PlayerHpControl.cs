@@ -44,7 +44,5 @@ public class PlayerHpControl : MonoBehaviour
         {
             GetComponent<PlayerAnimetion>().PlayerDie();
         }
-        
-         
     }
 }

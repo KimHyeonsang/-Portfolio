@@ -125,7 +125,7 @@ MonoBehaviour:
   Damage: 60
   MaxRange: 30
   Reroad: 3
-  attackDelay: 0.5
+  attackDelay: 0.2
   attackDelayA: 0.1
   attackDelayB: 0
   MaxBullet: 400

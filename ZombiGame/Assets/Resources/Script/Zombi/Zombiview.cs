@@ -70,7 +70,6 @@ public class Zombiview : MonoBehaviour
                 if (!Physics.Raycast(transform.position, TargetDirection, TargetDistance, ObstacleMask))
                 {
                     TargetList.Add(target);
-                    NomalZombiController.isMoveActivate = true;
                 }
             }
 

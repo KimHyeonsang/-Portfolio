@@ -67,6 +67,7 @@
     <Compile Include="Assets\Resources\Script\UIManager.cs" />
     <Compile Include="Assets\Resources\Script\Zombi\NomalZombiController.cs" />
     <Compile Include="Assets\Resources\Script\Player\PlayerContorl.cs" />
+    <Compile Include="Assets\RuneFire_Studios\WaypointsFree\Scripts\WaypointsTraveler.cs" />
     <Compile Include="Assets\Resources\Script\Zombi\SpeedZombiControllor.cs" />
     <Compile Include="Assets\JMO Assets\WarFX\Demo\Assets\WFX_Demo.cs" />
     <Compile Include="Assets\Resources\Script\WeaPonBulletDrop.cs" />
@@ -77,11 +78,13 @@
     <Compile Include="Assets\Resources\Script\Weapon\Shotgun.cs" />
     <Compile Include="Assets\Resources\Script\CrossHair.cs" />
     <Compile Include="Assets\JMO Assets\WarFX\Spawn System\CFX_SpawnSystem.cs" />
+    <Compile Include="Assets\RuneFire_Studios\WaypointsFree\Scripts\WaypointsGroup.cs" />
     <Compile Include="Assets\Resources\Script\Zombi\Zombi.cs" />
     <Compile Include="Assets\JMO Assets\WarFX\Demo\Assets\CFX_AutoStopLoopedEffect.cs" />
     <Compile Include="Assets\Resources\Script\Zombi\Zombiview.cs" />
     <Compile Include="Assets\Resources\Script\Weapon\Smg.cs" />
     <Compile Include="Assets\Resources\Script\SpawnPoint\SpawnPointBase.cs" />
+    <Compile Include="Assets\RuneFire_Studios\WaypointsFree\Scripts\WaypointGameObject.cs" />
     <Compile Include="Assets\JMO Assets\WarFX\Scripts\WFX_BulletHoleDecal.cs" />
     <Compile Include="Assets\Resources\Script\Zombi\TankerZombiController.cs" />
     <Compile Include="Assets\Resources\Script\GameManager.cs" />
@@ -89,7 +92,9 @@
     <Compile Include="Assets\JMO Assets\WarFX\Demo\Assets\CFX_Demo_RandomDir.cs" />
     <Compile Include="Assets\Resources\Script\Zombi\ZombiControl.cs" />
     <Compile Include="Assets\Resources\Script\Player\PlayerStamina.cs" />
+    <Compile Include="Assets\Resources\Script\SoundManager.cs" />
     <Compile Include="Assets\JMO Assets\WarFX\Demo\Assets\CFX_Demo_Translate.cs" />
+    <Compile Include="Assets\RuneFire_Studios\WaypointsFree\Scripts\Waypoint.cs" />
     <Compile Include="Assets\JMO Assets\WarFX\Demo\Assets\WFX_Demo_Wall.cs" />
     <Compile Include="Assets\Resources\Script\Player\PlayerHpControl.cs" />
     <Compile Include="Assets\Resources\Script\SpawnPoint\MyGizmo.cs" />
@@ -99,11 +104,6 @@
     <Compile Include="Assets\JMO Assets\WarFX\Demo\Assets\WFX_Demo_New.cs" />
     <Compile Include="Assets\Resources\Script\Weapon\CloseWeaponController.cs" />
     <Compile Include="Assets\Resources\Script\SpawnPoint\WayPoint.cs" />
-    <Compile Include="Assets\Resources\Script\SoundManager.cs" />
-    <Compile Include="Assets\RuneFire_Studios\WaypointsFree\Scripts\WaypointsTraveler.cs" />
-    <Compile Include="Assets\RuneFire_Studios\WaypointsFree\Scripts\Waypoint.cs" />
-    <Compile Include="Assets\RuneFire_Studios\WaypointsFree\Scripts\WaypointGameObject.cs" />
-    <Compile Include="Assets\RuneFire_Studios\WaypointsFree\Scripts\WaypointsGroup.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\JMO Assets\WarFX\Shaders\WFX_S Multiply Soft.shader" />

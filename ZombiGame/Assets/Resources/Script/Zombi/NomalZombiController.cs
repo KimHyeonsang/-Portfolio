@@ -9,17 +9,16 @@ public class NomalZombiController : ZombiControl
 
     [SerializeField] private GameObject Target;
 
-    private Vector3 WayPointTarget;
+    private Vector3[] WayPointTarget;
     private int NodeNumber;
     private int WayPointNumber;
     public static bool isActivate = true;
-    public static bool isMoveActivate = false;
 
-    private bool Moving = true;
     private void Awake()
     {
         view = GetComponent<Zombiview>();
         zombi = GetComponent<Zombi>();
+
     }
 
     private void Start()
@@ -29,49 +28,53 @@ public class NomalZombiController : ZombiControl
         ZombiNumber = WayPointManager.GetInstance().NodeNumber;
         WayPointManager.GetInstance().NodeNumber += 1;
         NodeNumber = ZombiNumber * 3;
-
-     //   Debug.Log(WayPoint.WayPointList[NodeNumber].transform.position);
-     //   Debug.Log(WayPoint.WayPointList[NodeNumber + 1].transform.position);
-     //   Debug.Log(WayPoint.WayPointList[NodeNumber + 2].transform.position);
-           
-        
-         WayPointTarget = WayPoint.WayPointList[NodeNumber].transform.position;
-
+        WayPointTarget = new Vector3[3];
+        WayPointNumber = 0;
+        for (int i = 0;i < 3;++i)
+        {
+            WayPointTarget[i] = WayPoint.WayPointList[NodeNumber + i].transform.position;
+        }
     }
 
     private void Update()
     {
-        // 만약 공격 범위 사거리 안에 들어오면
-        if (zombi.Range > Vector3.Distance(Target.transform.position, transform.position))
-        {
-            if (isActivate)
-                TryAttack();
-        }        
         // 인식 범위 안에 들어오면        
-        else if (isMoveActivate)
+        if (Vector3.Distance(Target.transform.position, transform.position) < zombi.TargetRange)
         {
-            TryMove();
-            transform.LookAt(Target.transform);
-            transform.position = Vector3.MoveTowards(transform.position, Target.transform.position, zombi.MoveSpeed * Time.deltaTime);
+            // 만약 공격 범위 사거리 안에 들어오면
+            if (zombi.Range > Vector3.Distance(Target.transform.position, transform.position))
+            {
+                if (isActivate)
+                    TryAttack();
+            }
+            // 공격 범위에 들어오지 않으면
+            else
+            {
+                TryMove();
+                transform.LookAt(Target.transform);
+                transform.position = Vector3.MoveTowards(transform.position, Target.transform.position, zombi.MoveSpeed * Time.deltaTime);
+            }
+           
         }
-
-       else if(Moving)
+        // 타겟이 인식 범위 밖이면 순회
+       else
        {
            TryMove();
-           transform.LookAt(WayPointTarget);
-           transform.position = Vector3.MoveTowards(transform.position, WayPointTarget, zombi.MoveSpeed * Time.deltaTime);
+            //이동
+            transform.LookAt(WayPointTarget[WayPointNumber]);
 
-           if(Vector3.Distance(WayPointTarget, transform.position)== 0.0f)
-           {
-               ++NodeNumber;
-       
-               if (NodeNumber > ((ZombiNumber + 1) * 3) - 1)
-               {
-                   NodeNumber = ZombiNumber * 3;
-               }
-           }
-       
-       }
+            transform.position = Vector3.MoveTowards(transform.position, WayPointTarget[WayPointNumber], zombi.MoveSpeed * Time.deltaTime);
+
+            if ((WayPointTarget[WayPointNumber] - transform.position).sqrMagnitude < 1.0f)
+            {
+                ++WayPointNumber;
+
+                if (WayPointNumber > 2)
+                {
+                    WayPointNumber = 0;
+                }
+            }
+        }
 
 
         if (zombi.Hp <= 0)
@@ -92,39 +95,4 @@ public class NomalZombiController : ZombiControl
             yield return null;
         }
     }
-
-
- private void OnCollisionEnter(Collision collision)
- {
-      if(WayPointTarget == collision.transform.position)
-      {
-          ++NodeNumber;
-
-          if (NodeNumber > ((ZombiNumber + 1) * 3) - 1)
-          {
-              NodeNumber = ZombiNumber * 3;
-          }
-          WayPointTarget = WayPoint.WayPointList[NodeNumber].transform.position;
-      }
-
-   //   if(collision.transform.tag == "Ground")
-   //   {
-   //       this.transform.localEulerAngles = new Vector3(0, this.transform.rotation.y, 0);
-   //   }
-
- }
- //
- //  private void OnTriggerEnter(Collider other)
- //  {
- //      if (WayPointTarget == other.transform.position)
- //      {
- //          ++NodeNumber;
- //
- //          if (NodeNumber > ((ZombiNumber + 1) * 3) - 1)
- //          {
- //              NodeNumber = ZombiNumber * 3;
- //          }
- //          WayPointTarget = WayPoint.WayPointList[NodeNumber].transform.position;
- //      }
- //  }
 }
