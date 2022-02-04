@@ -86,13 +86,8 @@ public class PlayerAnimetion : MonoBehaviour
                 PlayerShoot();
         }
 
-
-
-
-
         Anim.SetBool("Jump", JumpCheck);
         Anim.SetBool("ReRoad", Reroad);
-        Anim.SetBool("Dmg", false);
     }
 
     public void PlayerDie()

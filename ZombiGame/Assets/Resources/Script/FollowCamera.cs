@@ -15,7 +15,7 @@ public class FollowCamera : MonoBehaviour
     private Camera MainCamera;
     private void Awake()
     {
-        Target = GameManager.GetInstance.Spawn();
+        Target = GameManager.GetInstance().Spawn();
 
         MainCamera = GetComponent<Camera>();
 

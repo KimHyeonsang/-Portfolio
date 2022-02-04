@@ -76,10 +76,12 @@ public class TankerZombiController : ZombiControl
 
         if (zombi.Hp <= 0)
         {
+            PlayerContorl.ZombiKill++;
             GetComponent<TankerZombiController>().enabled = false;
             StartCoroutine(Die());
 
         }
+        currentZombi.Anim.SetFloat("Speed", 2.0f);
     }
 
     // 공격을 하면

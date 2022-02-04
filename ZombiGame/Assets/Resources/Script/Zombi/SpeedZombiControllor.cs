@@ -76,10 +76,13 @@ public class SpeedZombiControllor : ZombiControl
 
         if (zombi.Hp <= 0)
         {
+            PlayerContorl.ZombiKill++;
             GetComponent<SpeedZombiControllor>().enabled = false;
             StartCoroutine(Die());
 
         }
+
+        currentZombi.Anim.SetFloat("Speed", 3.0f);
     }
 
     // 공격을 하면

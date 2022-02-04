@@ -1798,7 +1798,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!114 &687213680743250869
 MonoBehaviour:
@@ -1816,7 +1816,6 @@ MonoBehaviour:
   Dmg: 5
   AttackSpeed: 0
   MoveSpeed: 2
-  MoveDelay: 1
   attackDelay: 1
   attackDelayA: 0.5
   attackDelayB: 0.3

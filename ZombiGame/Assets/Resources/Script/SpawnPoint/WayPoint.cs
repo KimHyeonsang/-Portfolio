@@ -103,6 +103,8 @@ public class WayPoint : MonoBehaviour
         GameObject zombi = ZombiObjectManager.GetInstance.GetDisableList.Pop();
         // 위치 저장
         zombi.transform.position = Enemy.transform.position;
+
+        zombi.SetActive(true);
         // 리스트로 저장
         ZombiObjectManager.GetInstance.GetEnableList.Add(zombi);
     }

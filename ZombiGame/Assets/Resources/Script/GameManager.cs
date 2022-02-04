@@ -10,24 +10,23 @@ public class GameManager : MonoBehaviour
     public int Stage = 1;
     private GameObject PlayerSwan;
     private GameObject EmptyObj;
-   
-    public static GameManager GetInstance
-    {
-        get
-        {
-            if (instance == null)
-            {
-                instance = new GameManager();               
-            }
 
-            return instance;
+    public static GameManager GetInstance()
+    {
+        if (instance == null)
+        {
+            instance = new GameManager();
         }
-       
+
+        return instance;
     }
 
     private void Start()
     {
         WayPointManager.GetInstance();
+        WayPoint.NomalZombiCount = 0;
+        WayPoint.SpeedZombiCount = 0;
+        WayPoint.TankerZombiCount = 0;
     }
     public GameObject Spawn()
     {

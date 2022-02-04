@@ -22,6 +22,7 @@ public class PlayerContorl : MonoBehaviour
 
     private Image Weapon2DImage;
 
+    public static int ZombiKill;
     private void Awake()
     {
         rid = GetComponent<Rigidbody>();
@@ -47,7 +48,7 @@ public class PlayerContorl : MonoBehaviour
     void Start()
     {
         MoveSpeed = 1.5f;
-        RunSpeed = 2.0f;
+        RunSpeed = 3.0f;
 
         bJumping = false;
         ButtonImage.SetActive(false);

@@ -40,7 +40,8 @@ public class PlayerHpControl : MonoBehaviour
             HurrentPlayerHart = AnchorPoint.value;
             GetComponent<PlayerAnimetion>().PlayerHit();
         }
-        else
+
+        if(HurrentPlayerHart <= 0)
         {
             GetComponent<PlayerAnimetion>().PlayerDie();
         }

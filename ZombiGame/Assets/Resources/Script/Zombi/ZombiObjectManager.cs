@@ -6,9 +6,9 @@ public class ZombiObjectManager
 {
     private static ZombiObjectManager Instance = null;
 
-    public int MaxNomalZombi = 60;
-    public int MaxSpeedZombi = 25;
-    public int MaxTankerZombi = 15;
+    public int MaxNomalZombi = 30;
+    public int MaxSpeedZombi = 12;
+    public int MaxTankerZombi = 8;
     public static ZombiObjectManager GetInstance
     {
         get

@@ -79,10 +79,13 @@ public class NomalZombiController : ZombiControl
 
         if (zombi.Hp <= 0)
         {
+            PlayerContorl.ZombiKill++;
             GetComponent<NomalZombiController>().enabled = false;
             StartCoroutine(Die());
 
         }
+
+        currentZombi.Anim.SetFloat("Speed", 1.0f);
     }
 
     // 공격을 하면

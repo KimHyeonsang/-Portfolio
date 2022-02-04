@@ -4,5 +4,11 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/MainScene.unity
+    guid: e55d608dc03d1cc4089461bdcbbf99f8
+  - enabled: 1
+    path: Assets/Scenes/ZombiGames.unity
+    guid: da4103adaa2932b478b9699827771cb0
   m_configObjects: {}

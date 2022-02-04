@@ -62,12 +62,12 @@ public class WayPointManager : MonoBehaviour
         TargetPoint = new Vector3(0.0f, 0.0f, 0.0f);
 
 
-        for (int i = 0; i < 100; ++i)
+        for (int i = 0; i < 50; ++i)
         {
             GameObject Obj = Instantiate(WayPointList);
             Obj.transform.parent = WayPointParent.transform;
             Obj.transform.position = new Vector3(Random.Range(-21, 70),
-                -10.0f,
+                -5.0f,
                 Random.Range(-40, 20));
         }
     }
