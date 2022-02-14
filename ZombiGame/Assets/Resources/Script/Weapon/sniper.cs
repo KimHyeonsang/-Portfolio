@@ -7,6 +7,10 @@ public class sniper : CloseWeaponController
 {
     //false는 평시 true는 장전중
     private bool check;
+
+    public AudioClip ShootClip;
+    public AudioClip ReroadClip;
+    private AudioSource AudioSound;
     void Start()
     {
         currentWeapon = GetComponent<CloseWeapon>();
@@ -27,6 +31,15 @@ public class sniper : CloseWeaponController
         currentWeapon.muzzleFlash = Effect.GetComponent<ParticleSystem>();
 
         check = false;
+
+        ShootClip = Resources.Load("Sound/guns/impacter") as AudioClip;
+        ReroadClip = Resources.Load("Sound/guns/they shoot") as AudioClip;
+
+        AudioSound = gameObject.GetComponent<AudioSource>();
+        AudioSound.Stop();
+        AudioSound.clip = ShootClip;
+        AudioSound.loop = false;
+        AudioSound.playOnAwake = false;
     }
 
     void Update()
@@ -42,7 +55,8 @@ public class sniper : CloseWeaponController
                 StartCoroutine(GunReroad());
                 return;
             }
-            
+            AudioSound.clip = ShootClip;
+            AudioSound.Play();
             TryAttack();
         }
 
@@ -75,6 +89,12 @@ public class sniper : CloseWeaponController
 
         Effect.SetActive(false);
 
+        AudioSound.clip = ReroadClip;
+
+        if (!AudioSound.isPlaying)
+        {
+            AudioSound.Play();
+        }
         yield return new WaitForSeconds(currentWeapon.Reroad);
 
         // 최대총알이 0 이상일 경우

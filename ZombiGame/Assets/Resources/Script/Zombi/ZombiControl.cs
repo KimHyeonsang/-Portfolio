@@ -55,7 +55,6 @@ public abstract class ZombiControl : MonoBehaviour
         ZombiObjectManager.GetInstance.GetEnableList.Remove(this.gameObject);
         this.gameObject.SetActive(false);
         ZombiObjectManager.GetInstance.GetDisableList.Push(this.gameObject);
-        Debug.Log(ZombiObjectManager.GetInstance.GetDisableList.Count);
      }
     protected IEnumerator AttackCoroutine()
     {

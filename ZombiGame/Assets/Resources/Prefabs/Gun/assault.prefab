@@ -124,7 +124,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Damage: 60
   MaxRange: 30
-  Reroad: 3
+  Reroad: 3.5
   attackDelay: 0.2
   attackDelayA: 0.1
   attackDelayB: 0
@@ -146,3 +146,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentWeapon: {fileID: 0}
+  ShootClip: {fileID: 0}
+  ReroadClip: {fileID: 0}

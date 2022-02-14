@@ -7,6 +7,10 @@ public class Assault : CloseWeaponController
 {
     //false는 평시 true는 장전중
     private bool check;
+
+    public AudioClip ShootClip;
+    public AudioClip ReroadClip;
+    private AudioSource AudioSound;
     void Start()
     {
         currentWeapon = GetComponent<CloseWeapon>();
@@ -26,12 +30,23 @@ public class Assault : CloseWeaponController
         currentWeapon.muzzleFlash = Effect.GetComponent<ParticleSystem>();
 
         check = false;
+
+        ShootClip = Resources.Load("Sound/guns/shoot em up") as AudioClip;
+        ReroadClip = Resources.Load("Sound/guns/they shoot") as AudioClip;
+
+
+        AudioSound = gameObject.GetComponent<AudioSource>();
+        AudioSound.Stop();
+        AudioSound.clip = ShootClip;
+        AudioSound.loop = false;
+        AudioSound.playOnAwake = false;
     }
 
     void Update()
     {        
-        if (Input.GetKey(KeyCode.R))
+        if (Input.GetKey(KeyCode.R) && check == false)
         {
+                     
             StartCoroutine(GunReroad());
         }
 
@@ -39,9 +54,13 @@ public class Assault : CloseWeaponController
         {
             if (currentWeapon.CurrentMagazine <= 0)
             {
+                
                 StartCoroutine(GunReroad());
                 return;
             }
+            
+            AudioSound.clip = ShootClip;
+            AudioSound.Play();
             
             TryAttack();
         }
@@ -74,6 +93,12 @@ public class Assault : CloseWeaponController
         check = true;
 
         Effect.SetActive(false);
+        AudioSound.clip = ReroadClip;
+
+        if (!AudioSound.isPlaying)
+        {
+            AudioSound.Play();
+        }
 
         yield return new WaitForSeconds(currentWeapon.Reroad);
 

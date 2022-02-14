@@ -13,6 +13,13 @@ public class SpeedZombiControllor : ZombiControl
     private int NodeNumber;
     private int WayPointNumber;
     public static bool isActivate = true;
+
+    // 대기 상태
+    private AudioClip DamageClip;
+    private AudioClip AttackClip;
+    private AudioClip idleClip;
+    private AudioSource AudioSound;
+
     private void Awake()
     {
         view = GetComponent<Zombiview>();
@@ -22,6 +29,22 @@ public class SpeedZombiControllor : ZombiControl
     private void Start()
     {
         Target = GameObject.FindWithTag("Player");
+
+        // 공격
+        AttackClip = Resources.Load("Sound/Z2-Free/Z2-V1-Attacking-Free-1") as AudioClip;
+        // 대기
+        idleClip = Resources.Load("Sound/Z3-Free/Z3-V2-Idle-Free-1") as AudioClip;
+
+        //맞을시
+        DamageClip = Resources.Load("Sound/Z2-Free/Z2-V1-Damaged-1") as AudioClip;
+
+
+        AudioSound = gameObject.GetComponent<AudioSource>();
+        AudioSound.Stop();
+        AudioSound.clip = idleClip;
+        AudioSound.loop = false;
+        AudioSound.playOnAwake = false;
+
 
         ZombiNumber = WayPointManager.GetInstance().NodeNumber;
         WayPointManager.GetInstance().NodeNumber += 1;
@@ -48,6 +71,8 @@ public class SpeedZombiControllor : ZombiControl
             // 공격 범위에 들어오지 않으면
             else
             {
+                AudioSound.clip = idleClip;
+                Play();
                 TryMove();
                 transform.LookAt(Target.transform);
                 transform.position = Vector3.MoveTowards(transform.position, Target.transform.position, zombi.MoveSpeed * Time.deltaTime);
@@ -57,6 +82,8 @@ public class SpeedZombiControllor : ZombiControl
         // 타겟이 인식 범위 밖이면 순회
         else
         {
+            AudioSound.clip = idleClip;
+            Play();
             TryMove();
             //이동
             transform.LookAt(WayPointTarget[WayPointNumber]);
@@ -90,9 +117,22 @@ public class SpeedZombiControllor : ZombiControl
     {
         while (isSwing)
         {
+            AudioSound.clip = AttackClip;
+            Play();
             Target.GetComponent<PlayerHpControl>().ZombiDmg(zombi.Dmg);
             isSwing = false;
             yield return null;
         }
+    }
+
+    public void Play()
+    {
+        if (!AudioSound.isPlaying)
+            AudioSound.Play();
+    }
+
+    public void DamegeSound()
+    {
+        AudioSound.clip = DamageClip;
     }
 }

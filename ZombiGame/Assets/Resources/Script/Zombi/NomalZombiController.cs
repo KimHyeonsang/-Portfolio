@@ -7,6 +7,13 @@ public class NomalZombiController : ZombiControl
     private Zombiview view;
     private Zombi zombi;
 
+    // 대기 상태
+    public AudioClip DamageClip;
+    public AudioClip AttackClip;
+    public AudioClip idleClip;
+    private AudioSource AudioSound;
+
+
     [SerializeField] private GameObject Target;
 
     private Vector3[] WayPointTarget;
@@ -24,6 +31,22 @@ public class NomalZombiController : ZombiControl
     private void Start()
     {
         Target = GameObject.FindWithTag("Player");
+
+        // 공격
+        AttackClip = Resources.Load("Sound/Z3-Free/Z3-V2-Attacking-Free-1") as AudioClip;
+        // 대기
+        idleClip = Resources.Load("Sound/Z3-Free/Z3-V2-Idle-Free-1") as AudioClip;
+
+        //맞을시
+        DamageClip = Resources.Load("Sound/Z3-Free/Z3-V2-Damaged-Free-1") as AudioClip;
+
+
+        AudioSound = gameObject.GetComponent<AudioSource>();
+        AudioSound.Stop();
+        AudioSound.clip = idleClip;
+        AudioSound.loop = false;
+        AudioSound.playOnAwake = false;
+
 
         ZombiNumber = WayPointManager.GetInstance().NodeNumber;
         WayPointManager.GetInstance().NodeNumber += 1;
@@ -50,6 +73,8 @@ public class NomalZombiController : ZombiControl
             // 공격 범위에 들어오지 않으면
             else
             {
+                AudioSound.clip = idleClip;
+                Play();
                 TryMove();
                 transform.LookAt(Target.transform);
                 transform.position = Vector3.MoveTowards(transform.position, Target.transform.position, zombi.MoveSpeed * Time.deltaTime);
@@ -59,8 +84,12 @@ public class NomalZombiController : ZombiControl
         // 타겟이 인식 범위 밖이면 순회
        else
        {
-           TryMove();
+            AudioSound.clip = idleClip;
+            Play();
             //이동
+            TryMove();
+
+            // 이동할곳 바라보기
             transform.LookAt(WayPointTarget[WayPointNumber]);
 
             transform.position = Vector3.MoveTowards(transform.position, WayPointTarget[WayPointNumber], zombi.MoveSpeed * Time.deltaTime);
@@ -93,9 +122,22 @@ public class NomalZombiController : ZombiControl
     {
         while (isSwing)
         {
+            AudioSound.clip = AttackClip;
+            Play();
             Target.GetComponent<PlayerHpControl>().ZombiDmg(zombi.Dmg);
             isSwing = false;
             yield return null;
         }
+    }
+
+    public void Play()
+    {
+        if(!AudioSound.isPlaying)
+            AudioSound.Play();
+    }
+
+    public void DamegeSound()
+    {
+        AudioSound.clip = DamageClip;
     }
 }

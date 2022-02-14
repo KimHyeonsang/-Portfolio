@@ -296,8 +296,8 @@ GameObject:
   - component: {fileID: 6742209782767501118}
   - component: {fileID: -2090017610402877768}
   - component: {fileID: 6920634554415252506}
-  - component: {fileID: 8210857785094669649}
   - component: {fileID: 5706483088838947546}
+  - component: {fileID: -5830357466491591168}
   m_Layer: 10
   m_Name: zombiegirl
   m_TagString: Enumy
@@ -395,7 +395,6 @@ MonoBehaviour:
   Dmg: 3
   AttackSpeed: 0
   MoveSpeed: 0.3
-  MoveDelay: 3
   attackDelay: 2.1
   attackDelayA: 0.5
   attackDelayB: 0.1
@@ -416,8 +415,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentZombi: {fileID: 0}
+  AudioClip: {fileID: 0}
   Target: {fileID: 0}
---- !u!82 &8210857785094669649
+--- !u!65 &5706483088838947546
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 939516006362015789}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.5, y: 2, z: 0.5}
+  m_Center: {x: 0, y: 1, z: 0}
+--- !u!82 &-5830357466491591168
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -427,7 +440,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: e66b136e063cc4049b96679b13228187, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -513,19 +526,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!65 &5706483088838947546
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 939516006362015789}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.5, y: 2, z: 0.5}
-  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1 &1067467717442372830
 GameObject:
   m_ObjectHideFlags: 0

@@ -55,7 +55,8 @@ public abstract class CloseWeaponController : MonoBehaviour
                 if (hitInfo.transform.GetComponent<Zombi>().Hp > 0)
                 {
                     hitInfo.transform.GetComponent<Zombi>().Hp -= currentWeapon.Damage;
-
+                    hitInfo.transform.GetComponent<NomalZombiController>().DamegeSound();
+                    hitInfo.transform.GetComponent<NomalZombiController>().Play();
                 }
             }
             else if (hitInfo.transform.name == "TankerZombi")
@@ -63,7 +64,8 @@ public abstract class CloseWeaponController : MonoBehaviour
                 if (hitInfo.transform.GetComponent<Zombi>().Hp > 0)
                 {
                     hitInfo.transform.GetComponent<Zombi>().Hp -= currentWeapon.Damage;
-
+                    hitInfo.transform.GetComponent<TankerZombiController>().DamegeSound();
+                    hitInfo.transform.GetComponent<TankerZombiController>().Play();
                 }
             }
             else if (hitInfo.transform.name == "SpeedZombi")
@@ -71,6 +73,8 @@ public abstract class CloseWeaponController : MonoBehaviour
                 if (hitInfo.transform.GetComponent<Zombi>().Hp > 0)
                 {
                     hitInfo.transform.GetComponent<Zombi>().Hp -= currentWeapon.Damage;
+                    hitInfo.transform.GetComponent<SpeedZombiControllor>().DamegeSound();
+                    hitInfo.transform.GetComponent<SpeedZombiControllor>().Play();
                 }
             }
 

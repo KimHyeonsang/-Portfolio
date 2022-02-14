@@ -7,6 +7,10 @@ public class Smg : CloseWeaponController
 {
     //false는 평시 true는 장전중
     private bool check;
+
+    public AudioClip ShootClip;
+    public AudioClip ReroadClip;
+    private AudioSource AudioSound;
     void Start()
     {
         currentWeapon = GetComponent<CloseWeapon>();
@@ -25,16 +29,24 @@ public class Smg : CloseWeaponController
         // ** smg쪽 이펙트 
         Effect = GameObject.Find("smg").transform.GetChild(0).gameObject;
 
-        Debug.Log(Effect.transform.name);
         currentWeapon.muzzleFlash = Effect.GetComponent<ParticleSystem>();
 
         // ** 장전 중인지 아닌지 판별
         check = false;
+
+        ShootClip = Resources.Load("Sound/guns/SFX GunAction 3") as AudioClip;
+        ReroadClip = Resources.Load("Sound/guns/they shoot") as AudioClip;
+
+        AudioSound = gameObject.GetComponent<AudioSource>();
+        AudioSound.Stop();
+        AudioSound.clip = ShootClip;
+        AudioSound.loop = false;
+        AudioSound.playOnAwake = false;
     }
 
     void Update()
     {
-        if (Input.GetKey(KeyCode.R))
+        if (Input.GetKey(KeyCode.R) && check == false)
         {
             StartCoroutine(GunReroad());
         }
@@ -45,7 +57,9 @@ public class Smg : CloseWeaponController
                 StartCoroutine(GunReroad());
                 return;
             }
-            
+
+            AudioSound.clip = ShootClip;
+            AudioSound.Play();
             TryAttack();
         }
 
@@ -77,7 +91,12 @@ public class Smg : CloseWeaponController
         check = true;
 
         Effect.SetActive(false);
+        AudioSound.clip = ReroadClip;
 
+        if (!AudioSound.isPlaying)
+        {
+            AudioSound.Play();
+        }
         yield return new WaitForSeconds(currentWeapon.Reroad);
 
         // 최대총알이 0 이상일 경우
