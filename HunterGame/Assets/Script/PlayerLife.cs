@@ -16,11 +16,10 @@ public class PlayerLife : MonoBehaviour
             --Life;
         else
         {
-            Destroy(gameObject);
+            gameObject.SetActive(false);
             UIManager UiObj = GameObject.Find("UiManager").GetComponent<UIManager>();
             UiObj.LoseUIActive();
         }
 
-        //gameover
     }
 }

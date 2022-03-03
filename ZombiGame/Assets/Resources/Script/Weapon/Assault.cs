@@ -45,8 +45,7 @@ public class Assault : CloseWeaponController
     void Update()
     {        
         if (Input.GetKey(KeyCode.R) && check == false)
-        {
-                     
+        {  
             StartCoroutine(GunReroad());
         }
 
@@ -59,9 +58,6 @@ public class Assault : CloseWeaponController
                 return;
             }
             
-            AudioSound.clip = ShootClip;
-            AudioSound.Play();
-            
             TryAttack();
         }
         
@@ -73,7 +69,9 @@ public class Assault : CloseWeaponController
     {
         // ÃÑÀ» ½î¸é
         if (isSwing == true)
-        {            
+        {
+            AudioSound.clip = ShootClip;
+            AudioSound.Play();
             if (CheckObject())
             {
                 isSwing = false;

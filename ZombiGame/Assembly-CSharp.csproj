@@ -53,7 +53,6 @@
     <UnityVersion>2020.3.21f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Assets\Resources\Script\Zombi\ZombiAngleview.cs" />
     <Compile Include="Assets\Resources\Script\SpawnPoint\WayPointManager.cs" />
     <Compile Include="Assets\JMO Assets\WarFX\Demo\Assets\WFX_Demo_DeleteAfterDelay.cs" />
     <Compile Include="Assets\Resources\Script\Zombi\ZombiObjectManager.cs" />
@@ -65,16 +64,15 @@
     <Compile Include="Assets\Resources\Script\Weapon\CloseWeapon.cs" />
     <Compile Include="Assets\Resources\Script\FollowCamera.cs" />
     <Compile Include="Assets\Resources\Script\FollowWeaponCamera.cs" />
-    <Compile Include="Assets\Resources\Script\UIManager.cs" />
     <Compile Include="Assets\Resources\Script\Zombi\NomalZombiController.cs" />
-    <Compile Include="Assets\Resources\Sound\Player\PlayerContorl.cs" />
+    <Compile Include="Assets\Resources\Script\Player\PlayerContorl.cs" />
     <Compile Include="Assets\RuneFire_Studios\WaypointsFree\Scripts\WaypointsTraveler.cs" />
     <Compile Include="Assets\Resources\Script\Zombi\SpeedZombiControllor.cs" />
     <Compile Include="Assets\JMO Assets\WarFX\Demo\Assets\WFX_Demo.cs" />
     <Compile Include="Assets\Resources\Script\WeaPonBulletDrop.cs" />
     <Compile Include="Assets\Resources\Script\Weapon\sniper.cs" />
     <Compile Include="Assets\JMO Assets\WarFX\Scripts\WFX_LightFlicker.cs" />
-    <Compile Include="Assets\Resources\Sound\Player\PlayerAnimetion.cs" />
+    <Compile Include="Assets\Resources\Script\Player\PlayerAnimetion.cs" />
     <Compile Include="Assets\Resources\Script\Weapon\WeaponSpawnBase.cs" />
     <Compile Include="Assets\Resources\Script\Weapon\Shotgun.cs" />
     <Compile Include="Assets\Resources\Script\CrossHair.cs" />
@@ -85,6 +83,7 @@
     <Compile Include="Assets\Resources\Script\Zombi\Zombiview.cs" />
     <Compile Include="Assets\Resources\Script\Weapon\Smg.cs" />
     <Compile Include="Assets\Resources\Script\SpawnPoint\SpawnPointBase.cs" />
+    <Compile Include="Assets\Resources\Script\MainScene\BackgroundSound.cs" />
     <Compile Include="Assets\RuneFire_Studios\WaypointsFree\Scripts\WaypointGameObject.cs" />
     <Compile Include="Assets\JMO Assets\WarFX\Scripts\WFX_BulletHoleDecal.cs" />
     <Compile Include="Assets\Resources\Script\Zombi\TankerZombiController.cs" />
@@ -92,12 +91,12 @@
     <Compile Include="Assets\Resources\Script\Weapon\Assault.cs" />
     <Compile Include="Assets\JMO Assets\WarFX\Demo\Assets\CFX_Demo_RandomDir.cs" />
     <Compile Include="Assets\Resources\Script\Zombi\ZombiControl.cs" />
-    <Compile Include="Assets\Resources\Sound\Player\PlayerStamina.cs" />
+    <Compile Include="Assets\Resources\Script\Player\PlayerStamina.cs" />
     <Compile Include="Assets\Resources\Script\SoundManager.cs" />
     <Compile Include="Assets\JMO Assets\WarFX\Demo\Assets\CFX_Demo_Translate.cs" />
     <Compile Include="Assets\RuneFire_Studios\WaypointsFree\Scripts\Waypoint.cs" />
     <Compile Include="Assets\JMO Assets\WarFX\Demo\Assets\WFX_Demo_Wall.cs" />
-    <Compile Include="Assets\Resources\Sound\Player\PlayerHpControl.cs" />
+    <Compile Include="Assets\Resources\Script\Player\PlayerHpControl.cs" />
     <Compile Include="Assets\Resources\Script\SpawnPoint\MyGizmo.cs" />
     <Compile Include="Assets\Resources\Script\Complete.cs" />
     <Compile Include="Assets\JMO Assets\WarFX\Scripts\CFX_AutoDestructShuriken.cs" />
@@ -106,7 +105,7 @@
     <Compile Include="Assets\Resources\Script\Weapon\CloseWeaponController.cs" />
     <Compile Include="Assets\Resources\Script\SpawnPoint\WayPoint.cs" />
     <Compile Include="Assets\Resources\Script\GameOverText.cs" />
-    <Compile Include="Assets\Resources\Script\MainScene\BackgroundSound.cs" />
+    <Compile Include="Assets\Resources\Script\UIManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\JMO Assets\WarFX\Shaders\WFX_S Multiply Soft.shader" />

@@ -34,9 +34,13 @@ public class StageManager : MonoBehaviour
     }
 
     public static void Next_Level()
-    {       
-        Level += 1;
-        PlayerPrefs.SetInt("Level", Level);        
+    {     
+        if(Level == 1)
+        {
+            Level += 1;
+            PlayerPrefs.SetInt("Level", Level);
+        }
+             
     }
 
     public void Reset()

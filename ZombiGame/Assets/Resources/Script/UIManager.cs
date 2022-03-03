@@ -26,7 +26,7 @@ public class UIManager : MonoBehaviour
     private void Start()
     {
         Player = GameObject.FindWithTag("Player");
-        
+
     }
     private void Update()
     {
@@ -39,13 +39,11 @@ public class UIManager : MonoBehaviour
 
     private IEnumerator PlayerDie()
     {
-        yield return new WaitForSeconds(5.0f);
+        yield return new WaitForSeconds(3.0f);
 
+        Time.timeScale = 0;
         PlayerUi.SetActive(false);
         GameOverUi.SetActive(true);
-        Time.timeScale = 0;
-
-
     }
 
 

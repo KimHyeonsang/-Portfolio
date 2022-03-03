@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public int Stage = 1;
     private GameObject PlayerSwan;
     private GameObject EmptyObj;
+    public bool completecheck = false;
 
     public static GameManager GetInstance()
     {
@@ -27,6 +28,7 @@ public class GameManager : MonoBehaviour
         WayPoint.NomalZombiCount = 0;
         WayPoint.SpeedZombiCount = 0;
         WayPoint.TankerZombiCount = 0;
+        completecheck = false;
     }
     public GameObject Spawn()
     {

@@ -25,10 +25,10 @@ public class GameManager
     public int iNumber = 0;
     public int KillCount = 0;
 
-    public int inGameMoney = 1000000;
+    public int inGameMoney = 0;
     public int MaxPower = 150;
     public int CurPower = 150;
-    public int Dia = 100000;
+    public int Dia = 1000;
 
     public int AttackCount = 10;
     public int ProducerCount = 10;

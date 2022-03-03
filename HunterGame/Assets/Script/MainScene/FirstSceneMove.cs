@@ -18,6 +18,7 @@ public class FirstSceneMove : MonoBehaviour
 
     public void FirstScene()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene("MainScene");
     }
 }

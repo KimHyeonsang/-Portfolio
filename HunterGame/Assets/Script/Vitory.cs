@@ -13,8 +13,9 @@ public class Vitory : MonoBehaviour
         StageManager.Next_Level();
         // √ ±‚»≠
         UiObj.ReStartScene();
+
+        GameManager.GetInstance.SpawnList.Clear();
+
         GameManager.GetInstance.inGameMoney += 50;
-
     }
-
 }

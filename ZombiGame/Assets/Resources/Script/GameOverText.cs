@@ -23,6 +23,9 @@ public class GameOverText : MonoBehaviour
             Time.timeScale = 1;
             SceneManager.LoadScene("MainScene");
             WayPoint.WayPointList.Clear();
+            GameManager.GetInstance().completecheck = true;
+            ZombiObjectManager.GetInstance.GetEnableList.Clear();
+            ZombiObjectManager.GetInstance.GetDisableList.Clear();
         }
     }
 }

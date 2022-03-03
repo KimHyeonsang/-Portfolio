@@ -8,10 +8,13 @@ public class UIManager : MonoBehaviour
     public GameObject SpawnUI;
     public GameObject OptionUI;
     public GameObject LoseUI;
+
+    public GameObject[] Iife;
     [Tooltip("메인 메뉴쪽 사용")]
     public GameObject MainUI;
     public GameObject StageSelectUI;
     public GameObject StageSelectExplanationBGUI;
+    public GameObject preparingUI;
     public GameObject PlayerPowerUI;
     public GameObject ShopUI;
     public GameObject DiaShopUI;
@@ -63,6 +66,7 @@ public class UIManager : MonoBehaviour
         if (LoseUI.activeSelf == true)
         {
             LoseUI.SetActive(false);
+            ReStartScene();
             Time.timeScale = 1;
         }
         else
@@ -146,6 +150,18 @@ public class UIManager : MonoBehaviour
             EggShopUI.SetActive(true);
         }
     }
+
+    public void StageScelectpreparingUIActive()
+    {
+        if (preparingUI.activeSelf == true)
+        {
+            preparingUI.SetActive(false);
+        }
+        else
+        {
+            preparingUI.SetActive(true);
+        }
+    }
     public void ReStartScene()
     {
         // 초기화 목록  코인 기본가격,현재 좀비 소환 수 초기화,
@@ -155,8 +171,9 @@ public class UIManager : MonoBehaviour
         {
             // 플레이어 지우기   
             Destroy(GameManager.GetInstance.GetPlayerList[i]);
-
         }
+
+
         for (int i = 0; i < GameManager.GetInstance.EnemyList.Count; ++i)
         {
             // 적군 지우기
@@ -164,21 +181,38 @@ public class UIManager : MonoBehaviour
         }
 
         // 플레이어 소환 가능 장소 리셋
+        for(int i = 0;i < 3;i++)
+        {
+            if(Iife[i].activeSelf == false)
+            {
+                Iife[i].SetActive(true);
+            }
+        }
+
+        // 총알 지우기
+        GameObject[] bullitClear = GameObject.FindGameObjectsWithTag("NomalBullet");
+
+        foreach(GameObject X in bullitClear)
+        {
+            Destroy(X);
+        }
+        
+
         for (int i = 0; i < GameManager.GetInstance.SpawnList.Count; ++i)
         {
             // 돌리기
             GameManager.GetInstance.SpawnList[i].SetActive(true);
         }
-
+        //플레이어의 목숨이 비활성화되어있으면
         // 필드에 나와있는 코인 삭제
         for (int i = 0; i < GameManager.GetInstance.CoinList.Count; ++i)
         {
             Destroy(GameManager.GetInstance.CoinList[i]);
         }
+
         GameManager.GetInstance.iNumber = 0;
         GameManager.GetInstance.EnemyList.Clear();
         GameManager.GetInstance.GetPlayerList.Clear();
         GameManager.GetInstance.CoinList.Clear();
-        Time.timeScale = 1;
     }
 }

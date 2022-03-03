@@ -19,7 +19,7 @@ public class ProducerInfo : MonoBehaviour
         GameObject.Find("DmgText").GetComponent<Text>().text = "공격력 :   0";
         GameObject.Find("HartText").GetComponent<Text>().text = "체력 :" + Hart.ToString() + " + " + HartUp.ToString();
         GameObject.Find("CostText").GetComponent<Text>().text = "비용 :" + price.ToString();
-        GameObject.Find("piceText").GetComponent<Text>().text = "조각 :" + GameManager.GetInstance.TankerCount + "/" + pice;
+        GameObject.Find("piceText").GetComponent<Text>().text = "조각 :" + GameManager.GetInstance.ProducerCount + "/" + pice;
         GameObject.Find("Photo").GetComponent<Image>().sprite = Imge;
     }
 
@@ -29,7 +29,7 @@ public class ProducerInfo : MonoBehaviour
         GameObject.Find("DmgText").GetComponent<Text>().text = "공격력 :  0";
         GameObject.Find("HartText").GetComponent<Text>().text = "체력 :" + Hart.ToString() + " + " + HartUp.ToString();
         GameObject.Find("CostText").GetComponent<Text>().text = "비용 :" + price.ToString();
-        GameObject.Find("piceText").GetComponent<Text>().text = "조각 :" + GameManager.GetInstance.TankerCount + "/" + pice;
+        GameObject.Find("piceText").GetComponent<Text>().text = "조각 :" + GameManager.GetInstance.ProducerCount + "/" + pice;
         GameObject.Find("Photo").GetComponent<Image>().sprite = Imge;
     }
     public void PowerUp()

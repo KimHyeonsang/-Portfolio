@@ -22,7 +22,7 @@ public class AttackerInfo : MonoBehaviour
         GameObject.Find("DmgText").GetComponent<Text>().text = "공격력 :" + Attack.ToString() + " + " + AttackUp.ToString();
         GameObject.Find("HartText").GetComponent<Text>().text = "체력 :" + Hart.ToString() + " + " + HartUp.ToString();
         GameObject.Find("CostText").GetComponent<Text>().text = "비용 :" + price.ToString();
-        GameObject.Find("piceText").GetComponent<Text>().text = "조각 :" + GameManager.GetInstance.TankerCount + "/" + pice;
+        GameObject.Find("piceText").GetComponent<Text>().text = "조각 :" + GameManager.GetInstance.AttackCount + "/" + pice;
         GameObject.Find("Photo").GetComponent<Image>().sprite = Imge;
     }
     private void Update()

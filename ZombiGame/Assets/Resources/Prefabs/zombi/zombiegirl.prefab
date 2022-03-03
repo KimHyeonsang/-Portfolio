@@ -399,7 +399,7 @@ MonoBehaviour:
   attackDelayA: 0.5
   attackDelayB: 0.1
   Range: 1.4
-  TargetRange: 15
+  TargetRange: 25
   DieDelay: 3
   Anim: {fileID: 0}
 --- !u!114 &6920634554415252506
@@ -415,7 +415,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentZombi: {fileID: 0}
-  AudioClip: {fileID: 0}
+  DamageClip: {fileID: 0}
+  AttackClip: {fileID: 0}
+  idleClip: {fileID: 0}
   Target: {fileID: 0}
 --- !u!65 &5706483088838947546
 BoxCollider:

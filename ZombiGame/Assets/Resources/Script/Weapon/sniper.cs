@@ -55,8 +55,7 @@ public class sniper : CloseWeaponController
                 StartCoroutine(GunReroad());
                 return;
             }
-            AudioSound.clip = ShootClip;
-            AudioSound.Play();
+            
             TryAttack();
         }
 
@@ -69,6 +68,8 @@ public class sniper : CloseWeaponController
         // ÃÑÀ» ½î¸é
         if (isSwing == true)
         {
+            AudioSound.clip = ShootClip;
+            AudioSound.Play();
             if (CheckObject())
             {
                 isSwing = false;
